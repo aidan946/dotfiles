@@ -1,0 +1,23 @@
+theme = "tokyonight_folke"
+
+[editor]
+line-number = "relative"
+mouse = true
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+enable = true
+display-messages= true
+display-inlay-hints = true
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[editor.file-picker]
+hidden = false
