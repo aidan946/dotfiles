@@ -27,37 +27,37 @@
 
       nixpkgs.config.allowUnfree = true;
 
-      environment.systemPackages =
+      environment.systemPackages = with pkgs;
         [
-            pkgs.libyaml
-            pkgs.libiconv
-            pkgs.openssl_3
-            pkgs.gnupatch
+            libyaml
+            libiconv
+            openssl_3
+            gnupatch
 
-            pkgs.fish
-            pkgs.git
-            pkgs.vim
-            pkgs.neovim
-            pkgs.tmux
-            pkgs.mise
-            pkgs.starship
-            pkgs.zoxide
-            pkgs.yazi
-            pkgs.lazygit
-            pkgs.opam
-            pkgs.pngpaste
-            pkgs.wget
-            pkgs.clang
-            pkgs.ripgrep
-            pkgs.fd
-            pkgs.fzf
-            pkgs.eza
-            pkgs.zellij
-            pkgs.helix
-            pkgs.codecrafters-cli
-            pkgs.exercism
+            fish
+            git
+            vim
+            neovim
+            tmux
+            mise
+            starship
+            zoxide
+            yazi
+            lazygit
+            opam
+            pngpaste
+            wget
+            clang
+            ripgrep
+            fd
+            fzf
+            eza
+            zellij
+            helix
+            codecrafters-cli
+            exercism
 
-            pkgs.obsidian
+            obsidian
         ];
 
       homebrew = {
@@ -68,6 +68,13 @@
         casks = [
         ];
       };
+
+      fonts.packages = with pkgs; [
+        nerd-fonts.iosevka
+        commit-mono
+        iosevka
+        fira-code
+      ];
 
       system.defaults = {
         dock.autohide  = true;
