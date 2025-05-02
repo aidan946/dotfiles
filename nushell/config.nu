@@ -67,7 +67,8 @@ $env.config.color_config = {
     }
 }
 
-use ~/.cache/starship/init.nu
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 source ~/.zoxide.nu
 

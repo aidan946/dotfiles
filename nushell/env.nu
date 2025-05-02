@@ -37,34 +37,33 @@ $env.PROMPT_COMMAND_RIGHT = {||
 
 $env.EDITOR = "nvim"
 
-path add "/opt/homebrew/bin:$PATH"
-path add "/home/linuxbrew/.linuxbrew/bin:$PATH"
-path add "/usr/local/bin:$PATH"
-path add "/home/aidan/.cargo/bin:$PATH"
-path add "/Users/aidan/.cargo/bin:$PATH"
-path add "/usr/local/opt/openssl@1.1/bin:$PATH"
-path add "/Users/aidan/Library/pnpm:$PATH"
-path add "/Users/aidan/anaconda3/bin:$PATH"
-path add "/Users/aidans/.tmuxifier/bin:$PATH"
-path add "$HOME/.emacs.d/bin:$PATH"
-path add "$HOME/go/bin:$PATH"
-path add "$HOME/.cargo/bin:$PATH"
-path add "/home/aidan/.local/share/bob/nvim-bin:$PATH"
-path add "/Users/aidan/.local/share/bob/nvim-bin:$PATH"
-path add "/home/aidan/.cache/rebar3/bin:$PATH"
-path add "/home/aidan/.modular/pkg/packages.modular.com_max/bin:$PATH"
-path add "/home/aidan/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
-path add "/Users/aidan/projects/ngrrram/target/release:$PATH")
-path add "/Users/aidan/.config/emacs/bin:$PATH"
-path add "/home/aidan/.config/emacs/bin:$PATH"
-path add "/home/aidan/builds/flutter/bin:$PATH"
-path add "/Users/aidan/builds/flutter/bin:$PATH"
-path add "/Users/aidan/.opam/default/bin:$PATH"
+use std/util "path add"
+$env.path ++= ["/opt/homebrew/bin:$PATH",
+                "/home/linuxbrew/.linuxbrew/bin:$PATH",
+                "/usr/local/bin:$PATH",
+                "/home/aidan/.cargo/bin:$PATH",
+                "/Users/aidan/.cargo/bin:$PATH",
+                "/usr/local/opt/openssl@1.1/bin:$PATH",
+                "/Users/aidan/Library/pnpm:$PATH",
+                "/Users/aidan/anaconda3/bin:$PATH",
+                "/Users/aidans/.tmuxifier/bin:$PATH",
+                "$HOME/.emacs.d/bin:$PATH",
+                "$HOME/go/bin:$PATH",
+                "$HOME/.cargo/bin:$PATH",
+                "/home/aidan/.local/share/bob/nvim-bin:$PATH",
+                "/Users/aidan/.local/share/bob/nvim-bin:$PATH",
+                "/home/aidan/.cache/rebar3/bin:$PATH",
+                "/home/aidan/.modular/pkg/packages.modular.com_max/bin:$PATH",
+                "/home/aidan/.modular/pkg/packages.modular.com_mojo/bin:$PATH",
+                "/Users/aidan/projects/ngrrram/target/release:$PATH",
+                "/Users/aidan/.config/emacs/bin:$PATH",
+                "/home/aidan/.config/emacs/bin:$PATH",
+                "/home/aidan/builds/flutter/bin:$PATH",
+                "/Users/aidan/builds/flutter/bin:$PATH",
+                "/Users/aidan/.opam/default/bin:$PATH"]
 
 $env.CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense" # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 zoxide init nushell | save -f ~/.zoxide.nu
-
-$env.AWS_REGION = "ap-southeast-2"
