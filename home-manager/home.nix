@@ -7,9 +7,15 @@
   home.homeDirectory = "/home/aidan";
 
   home.stateVersion = "25.05"; # Please read the comment before changing.
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; 
     [
+    nerd-fonts.iosevka
+    commit-mono
+    iosevka
+    fira-code
+
     libyaml
     libiconv
     openssl_3
@@ -36,6 +42,8 @@
     helix
     codecrafters-cli
     exercism
+    carapace
+    webcord
   ];
 
   home.file = {

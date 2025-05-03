@@ -19,8 +19,8 @@ return {
     opts = {
       workspaces = {
         {
-          name = 'work',
-          path = '/Users/aidan/obsidian/',
+          name = 'personal',
+          path = '$HOME/obsidian/personal/',
         },
       },
       completion = {
