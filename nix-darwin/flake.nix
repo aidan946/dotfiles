@@ -35,6 +35,7 @@
             gnupatch
 
             fish
+            nushell
             git
             vim
             neovim
@@ -56,6 +57,7 @@
             helix
             codecrafters-cli
             exercism
+            carapace
 
             obsidian
         ];
