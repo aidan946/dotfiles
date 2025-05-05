@@ -22,6 +22,7 @@
     ".config/skhd".source = ../skhd;
     ".config/starship".source = ../starship;
     ".config/tmux".source = ../tmux;
+    ".config/wezterm".source = ../wezterm;
     ".config/yabai".source = ../yabai;
     ".config/yazi".source = ../yazi;
     ".config/zed".source = ../zed;

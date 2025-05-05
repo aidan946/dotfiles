@@ -2,10 +2,10 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.color_scheme_dirs = { "/colors" }
-config.color_scheme = "tokyonight_moon"
+config.color_scheme = "kanagawa"
 config.font = wezterm.font({
-	weight = "Light",
-	family = "Iosevka Term Curly",
+	weight = "Regular",
+	family = "CommitMono",
 })
 
 config.font_size = 12
