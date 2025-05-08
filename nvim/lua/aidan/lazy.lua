@@ -12,7 +12,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'plugins' },
 }, {
-  lockfile = 'nvim/lazy-lock.json',
+  lockfile = vim.fn.expand '~' .. '/dotfiles/nvim/lazy-lock.json',
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
