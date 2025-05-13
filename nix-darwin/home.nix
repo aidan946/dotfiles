@@ -11,6 +11,7 @@
   home.file = {
     ".zshrc".source = ../.zshrc;
     ".config/fish".source = ../fish;
+    ".config/doom".source = ../doom;
     ".config/ghostty".source = ../ghostty;
     ".config/gitui".source = ../gitui;
     ".config/helix".source = ../helix;

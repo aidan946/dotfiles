@@ -58,6 +58,8 @@
             codecrafters-cli
             exercism
             carapace
+            emacs
+            uv
 
             obsidian
         ];

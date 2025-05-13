@@ -44,10 +44,13 @@
     exercism
     carapace
     webcord
+    emacs
+    uv
   ];
 
   home.file = {
     ".zshrc".source = ../.zshrc;
+    ".config/doom".source = ../doom;
     ".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
     ".config/gitui".source = ../gitui;

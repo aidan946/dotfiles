@@ -2,6 +2,7 @@ set -g fish_greeting
 alias cd="z"
 alias ls=eza
 fish_add_path /usr/bin
+fish_add_path $HOME/.config/emacs/bin
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 set -gx EDITOR nvim
