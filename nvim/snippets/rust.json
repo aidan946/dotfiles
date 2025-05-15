@@ -1,0 +1,7 @@
+{
+    "derive_component": {
+        "prefix": "dc",
+        "body": ["#[derive(Component)]"],
+        "description": "#[derive(Component)]"
+    },
+ }
