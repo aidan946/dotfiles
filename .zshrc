@@ -21,7 +21,6 @@ plugins=(
     command-not-found
     zsh-autosuggestions
     zsh-syntax-highlighting
-    fast-syntax-highlighting
 )
 
 
@@ -53,6 +52,7 @@ esac
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

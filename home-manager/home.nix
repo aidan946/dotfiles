@@ -8,6 +8,7 @@
 
   home.stateVersion = "25.05"; # Please read the comment before changing.
   fonts.fontconfig.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; 
     [
@@ -22,11 +23,11 @@
     gnupatch
 
     fish
-    git
     vim
     neovim
     tmux
     mise
+    hyprpaper
     starship
     zoxide
     yazi
@@ -46,6 +47,9 @@
     webcord
     emacs
     uv
+    obsidian
+    waybar
+    gimp3
   ];
 
   home.file = {
@@ -85,9 +89,29 @@
   # or
   #
   #  /etc/profiles/per-user/aidan/etc/profile.d/hm-session-vars.sh
-  #
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Aidan";
+    userEmail = "aidanstevens90@gmail.com";
   };
 
   # Let Home Manager install and manage itself.
