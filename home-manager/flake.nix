@@ -7,6 +7,8 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+      useGlobalPkgs = true;
+
     };
   };
 
@@ -18,12 +20,7 @@
       homeConfigurations."aidan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }

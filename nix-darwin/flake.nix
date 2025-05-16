@@ -26,43 +26,9 @@
     configuration = { pkgs, config, ... }: {
 
       nixpkgs.config.allowUnfree = true;
-
       environment.systemPackages = with pkgs;
-        [
-            libyaml
-            libiconv
-            openssl_3
-            gnupatch
-
-            fish
-            nushell
-            git
-            vim
-            neovim
-            tmux
-            mise
-            starship
-            zoxide
-            yazi
-            lazygit
-            opam
-            pngpaste
-            wget
-            clang
-            ripgrep
-            fd
-            fzf
-            eza
-            zellij
-            helix
-            codecrafters-cli
-            exercism
-            carapace
-            emacs
-            uv
-
-            obsidian
-        ];
+      [
+      ];
 
       homebrew = {
         enable = true;
@@ -73,13 +39,6 @@
         ];
       };
 
-      fonts.packages = with pkgs; [
-        nerd-fonts.iosevka
-        commit-mono
-        iosevka
-        fira-code
-      ];
-
       system.defaults = {
         dock.autohide  = true;
         finder.FXPreferredViewStyle = "clmv";
@@ -88,7 +47,6 @@
       };
 
       nix.settings.experimental-features = "nix-command flakes";
-      programs.fish.enable = true;
       system.configurationRevision = self.rev or self.dirtyRev or null;
       system.stateVersion = 6;
       nixpkgs.hostPlatform = "aarch64-darwin";
