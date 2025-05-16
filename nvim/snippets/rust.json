@@ -4,4 +4,9 @@
         "body": ["#[derive(Component)]"],
         "description": "#[derive(Component)]"
     },
- }
+    "derive_resource": {
+        "prefix": "dr",
+        "body": ["#[derive(Resource)]"],
+        "description": "#[derive(Resource)]"
+    }
+}
