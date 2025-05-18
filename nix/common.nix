@@ -43,6 +43,10 @@
     carapace
     emacs
     uv
+    tree-sitter
+    imagemagick
+    tectonic
+    mermaid-cli
     obsidian
   ];
 
@@ -64,7 +68,8 @@
     ".config/waybar".source = ../waybar;
     ".config/yabai".source = ../yabai;
     ".config/yazi".source = ../yazi;
-    ".config/zed".source = ../zed;
+    ".config/zed/keymap.json".source = ../zed/keymap.json;
+    ".config/zed/settings.json".source = ../zed/settings.json;
     ".config/zellij".source = ../zellij;
   };
 

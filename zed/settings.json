@@ -403,7 +403,7 @@
         // Default width of the notification panel.
         "default_width": 380
     },
-    "assistant": {
+    "agent": {
         // Version of this setting.
         "version": "2",
         // Whether the assistant is enabled.
@@ -443,9 +443,9 @@
                     "fetch": true,
                     "list_directory": false,
                     "now": true,
-                    "path_search": true,
+                    "find_path": true,
                     "read_file": true,
-                    "regex_search": true,
+                    "grep": true,
                     "thinking": true
                 }
             },
@@ -461,14 +461,14 @@
                     "create_file": true,
                     "delete_path": false,
                     "diagnostics": true,
-                    "find_replace_file": true,
+                    "edit_file": true,
                     "fetch": true,
                     "list_directory": false,
                     "move_path": false,
                     "now": true,
-                    "path_search": true,
+                    "find_path": true,
                     "read_file": true,
-                    "regex_search": true,
+                    "grep": true,
                     "rename": true,
                     "symbol_info": true,
                     "thinking": true
@@ -665,12 +665,14 @@
             "**/*.cert",
             "**/*.crt",
             "**/.dev.vars",
-            "**/secrets.yml"
+            "**/secrets.yml",
+            "**/*.json",
+            "**/*.jsonc"
         ],
         // When to show edit predictions previews in buffer.
-        "mode": "eager",
+        "mode": "subtle",
         // Whether edit predictions are enabled in the assistant panel.
-        "enabled_in_assistant": true
+        "enabled_in_text_threads": true
     },
     // Settings specific to journaling
     "journal": {

@@ -1,7 +1,0 @@
-import = [
-"~/.config/alacritty/tokyonight_moon.toml"
-]
-
-[font]
-normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
-size = 13
