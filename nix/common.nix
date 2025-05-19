@@ -55,7 +55,6 @@
     ".config/doom".source = ../doom;
     ".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
-    ".config/gitui".source = ../gitui;
     ".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
     ".config/mise".source = ../mise;
