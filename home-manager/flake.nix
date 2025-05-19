@@ -7,8 +7,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      useGlobalPkgs = true;
-
     };
   };
 
@@ -17,6 +15,7 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+      home-manager.useGlobalPkgs = true;
       homeConfigurations."aidan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

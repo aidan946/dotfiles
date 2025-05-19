@@ -11,6 +11,9 @@
       hyprpaper
       waybar
       gimp3
+      wl-clipboard
+      sqlite
+      webcord
   ];
 
   dconf.settings = {
