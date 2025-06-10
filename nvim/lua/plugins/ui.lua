@@ -17,11 +17,9 @@ return {
       vim.cmd.colorscheme 'kanagawa-wave'
     end,
   },
-  -- Dev icons
   {
     'nvim-tree/nvim-web-devicons',
   },
-  -- Bufferline
   {
     'akinsho/bufferline.nvim',
     event = 'VeryLazy',
@@ -59,7 +57,6 @@ return {
       })
     end,
   },
-  -- Dressing
   {
     'stevearc/dressing.nvim',
     lazy = true,
@@ -71,7 +68,6 @@ return {
       end
     end,
   },
-  -- Noice
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
@@ -115,9 +111,6 @@ return {
       { "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, silent = true, expr = true, desc = "Scroll Backward", mode = {"i", "n", "s"}},
     },
     config = function(_, opts)
-      -- HACK: noice shows messages from before it was enabled,
-      -- but this is not ideal when Lazy is installing plugins,
-      -- so clear the messages in this case.
       if vim.o.filetype == 'lazy' then
         vim.cmd [[messages clear]]
       end
@@ -126,48 +119,6 @@ return {
   },
   -- NUI
   { 'MunifTanjim/nui.nvim', lazy = true },
-  -- Dashboard
-  {
-    'folke/snacks.nvim',
-    opts = {
-      dashboard = {
-        preset = {
-          header = [[
-                                    ██    ██    ██                                    
-                                  ██      ██  ██                                      
-                                  ██    ██    ██                                      
-                                    ██  ██      ██                                    
-                                    ██    ██    ██                                    
-                                                                                      
-                                ████████████████████                                  
-                                ██                ██████                              
-                                ██                ██  ██                              
-                                ██                ██  ██                              
-                                ██                ██████                              
-                                  ██            ██                                    
-                              ████████████████████████                                
-                              ██                    ██                                
-                                ████████████████████                                  
-                                                                                      
-                                                                                      
-    ]],
-        -- stylua: ignore
-        ---@type snacks.dashboard.Item[]
-        keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.expand('~') .. '/dotfiles/nvim/'})" },
-          { icon = " ", key = "s", desc = "Restore Session", action = ':lua require("persistence").load()' },
-          -- { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-        },
-        },
-      },
-    },
-  },
-  -- lualine
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
@@ -201,15 +152,12 @@ return {
       return opts
     end,
   },
-  { -- Useful plugin to show you pending keybinds.
+  {
     'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+    event = 'VimEnter',
     opts = {
       icons = {
-        -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default whick-key.nvim defined Nerd Font icons, otherwise define a string table
         keys = vim.g.have_nerd_font and {} or {
           Up = '<Up> ',
           Down = '<Down> ',
@@ -242,7 +190,6 @@ return {
         },
       },
 
-      -- Document existing key chains
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
