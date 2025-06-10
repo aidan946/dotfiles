@@ -7,6 +7,8 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 set -gx EDITOR nvim
 fish_add_path /etc/profiles/per-user/aidan/bin
+fish_add_path /nix/var/nix/profiles/default/bin
+fish_add_path $HOME/.nix-profile/bin
 fish_add_path $HOME/.nix-profile/etc/bin
 fish_add_path /run/current-system/sw/bin
 
