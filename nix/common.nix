@@ -57,7 +57,7 @@
     ".config/ghostty".source = ../ghostty;
     ".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
-    ".config/mise".source = ../mise;
+    #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
     ".config/nushell".source = ../nushell;
     ".config/nvim".source = ../nvim;
