@@ -17,7 +17,7 @@ return {
         version = '*',
       },
       'echasnovski/mini.icons',
-      --[[      'giuxtaposition/blink-cmp-copilot', ]]
+      'giuxtaposition/blink-cmp-copilot',
     },
     event = 'InsertEnter',
 
@@ -54,48 +54,25 @@ return {
         },
       },
       sources = {
-        compat = {
-          'avante_commands',
-          'avante_mentions',
-          'avante_files',
-        },
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'avante_commands', 'avante_mentions', 'avante_files' },
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
         providers = {
-          -- copilot = {
-          --   name = 'copilot',
-          --   module = 'blink-cmp-copilot',
-          --   score_offset = 100,
-          --   async = true,
-          -- },
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100,
+            async = true,
+          },
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
-          },
-          avante_commands = {
-            name = 'avante_commands',
-            module = 'blink.compat.source',
-            score_offset = 90,
-            opts = {},
-          },
-          avante_files = {
-            name = 'avante_files',
-            module = 'blink.compat.source',
-            score_offset = 100,
-            opts = {},
-          },
-          avante_mentions = {
-            name = 'avante_mentions',
-            module = 'blink.compat.source',
-            score_offset = 1000,
-            opts = {},
           },
         },
       },
       keymap = {
         preset = 'default',
         ['<C-y>'] = { 'select_and_accept' },
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<C-n>'] = { 'select_prev', 'fallback' },
+        ['<C-p>'] = { 'select_next', 'fallback' },
       },
     },
     ---@param opts blink.cmp.Config | { sources: { compat: string[] } }

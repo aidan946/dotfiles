@@ -107,7 +107,7 @@ return {
       })
 
       local servers = {
-        ts_ls = {},
+        vtsls = {},
         gopls = {},
         pyright = {},
         rust_analyzer = {},
