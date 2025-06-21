@@ -71,8 +71,8 @@ return {
       keymap = {
         preset = 'default',
         ['<C-y>'] = { 'select_and_accept' },
-        ['<C-n>'] = { 'select_prev', 'fallback' },
-        ['<C-p>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-n>'] = { 'select_next', 'fallback' },
       },
     },
     ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
