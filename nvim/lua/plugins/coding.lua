@@ -1,5 +1,4 @@
 return {
-  -- Git signs
   {
     'lewis6991/gitsigns.nvim',
     event = 'VeryLazy',
@@ -14,17 +13,15 @@ return {
       },
     },
   },
-  'tpope/vim-sleuth',
+  { 'tpope/vim-sleuth', event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' } },
   { 'numToStr/Comment.nvim', opts = {} },
-  --NVIM TS Context Commentstring
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    lazy = true,
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
       enable_autocmd = false,
     },
   },
-  -- Mini Comment
   {
     'echasnovski/mini.comment',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },

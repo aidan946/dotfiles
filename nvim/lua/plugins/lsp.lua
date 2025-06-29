@@ -1,5 +1,4 @@
 return {
-  -- LSP Plugins
   {
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -142,7 +141,7 @@ return {
     end,
   },
 
-  { -- Autoformat
+  {
     'stevearc/conform.nvim',
     lazy = false,
     event = { 'BufWritePre' },

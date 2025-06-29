@@ -1,23 +1,34 @@
-theme = "tokyonight_folke"
+theme = "kanagawa"
 
 [editor]
+auto-pairs = false
 line-number = "relative"
-mouse = true
 bufferline = "multiple"
+undercurl = true
 
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+[editor.statusline]
+right = ["diagnostics", "selections", "register", "position", "position-percentage", "file-encoding"]
 
 [editor.lsp]
 enable = true
 display-messages= true
 display-inlay-hints = true
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+parents= false
+
 [editor.indent-guides]
 render = true
 skip-levels = 1
 
-[editor.file-picker]
-hidden = false
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "hint"

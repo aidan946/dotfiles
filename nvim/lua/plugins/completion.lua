@@ -1,5 +1,4 @@
 return {
-  -- Blink
   {
     'saghen/blink.cmp',
     version = '*',

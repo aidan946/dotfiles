@@ -21,7 +21,6 @@ return {
       },
     },
   },
-  -- Flash
   {
     'folke/flash.nvim',
     event = 'VeryLazy',
@@ -36,7 +35,6 @@ return {
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
-  -- VIM Illuminate
   {
     'RRethy/vim-illuminate',
     event = 'BufReadPre',
@@ -72,10 +70,7 @@ return {
       { '[[', desc = 'Prev Reference' },
     },
   },
-  -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
-
-  -- Trouble
   {
     'folke/trouble.nvim',
     cmd = { 'TroubleToggle', 'Trouble' },
@@ -116,7 +111,6 @@ return {
       },
     },
   },
-  -- Harpoon
   {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
