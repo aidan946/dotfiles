@@ -43,6 +43,7 @@
     carapace
     emacs
     uv
+    postgresql
     tree-sitter
     imagemagick
     tectonic

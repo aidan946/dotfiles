@@ -41,6 +41,7 @@ return {
         },
         },
       },
+      image = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       notifier = {
@@ -49,6 +50,8 @@ return {
       },
       quickfile = { enabled = true },
       picker = {},
+      scratch = {},
+      scope = {},
       statuscolumn = { enabled = true },
       styles = {
         notification = {
@@ -232,7 +235,6 @@ return {
         end,
         desc = '[S]earch Document [d]iagnostics',
       },
-      -- { '<leader>sD', '<cmd>FzfLua diagnostics_document<cr>', desc = '[S]earch Workspace [D]iagnostics' },
       {
         '<leader>sr',
         function()
@@ -248,9 +250,11 @@ return {
         desc = '[S]earch Recent Files ("." for repeat)',
       },
       {
-        '<leader><leader>',
-        '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>',
-        desc = '[ ] Find existing buffers',
+        '<leader>sb',
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = '[S]earch [B]uffers',
       },
     },
     init = function()
