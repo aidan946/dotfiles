@@ -21,6 +21,7 @@
       environment.systemPackages = with pkgs;
       [
         yabai
+        beam28Packages.rebar3
       ];
 
 

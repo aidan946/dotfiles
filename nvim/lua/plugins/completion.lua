@@ -51,7 +51,7 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
         per_filetype = {
           lua = { inherit_defaults = true, 'lazydev' },
         },

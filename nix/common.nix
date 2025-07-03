@@ -48,6 +48,8 @@
     imagemagick
     tectonic
     mermaid-cli
+    jujutsu
+    lazyjj
     obsidian
   ];
 
@@ -77,5 +79,18 @@
     enable = true;
     userName = "Aidan";
     userEmail = "aidanstevens90@gmail.com";
+  };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Aidan";
+        email = "aidanstevens90@gmail.com";
+      };
+      ui = {
+        default-command = "log";
+      };
+    };
   };
 }
