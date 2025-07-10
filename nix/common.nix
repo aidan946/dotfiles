@@ -12,6 +12,7 @@
     commit-mono
     iosevka
     fira-code
+    lilex
 
     libyaml
     libiconv
@@ -20,37 +21,42 @@
 
     fish
     nushell
+
     git
+    jujutsu
     vim
     neovim
+    helix
+    emacs
     tmux
-    mise
+    zellij
     starship
     zoxide
+    eza
     yazi
     lazygit
+    lazyjj
+    carapace
+
+    mise
     opam
-    wget
+    uv
+
     clang
+
+    tree-sitter
     ripgrep
     fd
     fzf
-    eza
-    zellij
-    helix
-    codecrafters-cli
-    exercism
-    carapace
-    emacs
-    uv
-    postgresql
-    tree-sitter
     imagemagick
     tectonic
     mermaid-cli
-    jujutsu
-    lazyjj
+
+    codecrafters-cli
+    exercism
+
     obsidian
+    postgresql
   ];
 
   home.file = {
