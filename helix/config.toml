@@ -1,4 +1,4 @@
-theme = "kanagawa"
+theme = "kanagawa-transparent"
 
 [editor]
 auto-pairs = false

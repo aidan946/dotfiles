@@ -236,20 +236,6 @@ return {
         desc = '[S]earch Document [d]iagnostics',
       },
       {
-        '<leader>sr',
-        function()
-          Snacks.picker.resume()
-        end,
-        desc = '[S]earch [R]esume',
-      },
-      {
-        '<leader>sr',
-        function()
-          Snacks.picker.recent()
-        end,
-        desc = '[S]earch Recent Files ("." for repeat)',
-      },
-      {
         '<leader>sb',
         function()
           Snacks.picker.buffers()
