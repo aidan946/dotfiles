@@ -1,3 +1,12 @@
+[language-server.typescript-language-server]
+command = "vtsls"
+args = ["--stdio"]
+config.hostInfo = "helix"
+
+[language-server.typescript-language-server.config.typescript]
+updateImportsOnFileMove = { enabled = "always" }
+suggest = { completeFunctionCalls = true }
+
 [language-server.solargraph]
 config.diagnostics=true
 config.formatting=false
@@ -31,6 +40,7 @@ biome = { command = "biome", args = ["lsp-proxy"] }
 name = "javascript"
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
 auto-format = true
+
 
 [[language]]
 name = "typescript"

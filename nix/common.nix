@@ -18,6 +18,7 @@
     libiconv
     openssl_3
     gnupatch
+    libpq
 
     fish
     nushell
@@ -62,7 +63,7 @@
   home.file = {
     ".zshrc".source = ../.zshrc;
     ".config/doom".source = ../doom;
-    ".config/fish".source = ../fish;
+    #".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
     ".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
@@ -72,7 +73,7 @@
     ".config/nvim".source = ../nvim;
     ".config/skhd".source = ../skhd;
     ".config/starship".source = ../starship;
-    ".config/tmux".source = ../tmux;
+    ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
     ".config/waybar".source = ../waybar;
     ".config/yabai".source = ../yabai;
     ".config/yazi".source = ../yazi;
