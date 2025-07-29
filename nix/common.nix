@@ -64,10 +64,11 @@
   home.file = {
     ".zshrc".source = ../.zshrc;
     ".config/doom".source = ../doom;
-    #".config/fish".source = ../fish;
+    ".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
     ".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
+    ".config/kitty".source = ../kitty;
     #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
     ".config/nushell/env.nu".source = ../nushell/env.nu;
