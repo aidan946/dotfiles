@@ -52,6 +52,7 @@
     imagemagick
     tectonic
     mermaid-cli
+    gh
 
     codecrafters-cli
     exercism
@@ -69,7 +70,9 @@
     ".config/hypr".source = ../hypr;
     #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
-    ".config/nushell".source = ../nushell;
+    ".config/nushell/env.nu".source = ../nushell/env.nu;
+    ".config/nushell/config.nu".source = ../nushell/config.nu;
+    ".config/nushell/mise.nu".source = ../nushell/mise.nu;
     ".config/nvim".source = ../nvim;
     ".config/skhd".source = ../skhd;
     ".config/starship".source = ../starship;

@@ -1,7 +1,7 @@
 # Default Nushell Environment Config File
 # These "sensible defaults" are set before the user's `env.nu` is loaded
 #
-# version = "0.104.1"
+# version = "0.106.1"
 
 $env.PROMPT_COMMAND = {||
     let dir = match (do -i { $env.PWD | path relative-to $nu.home-path }) {
@@ -35,34 +35,39 @@ $env.PROMPT_COMMAND_RIGHT = {||
     ([$last_exit_code, (char space), $time_segment] | str join)
 }
 
+
+$env.config.show_banner = false
+$env.config.buffer_editor = "nvim"
+$env.EDITOR = "nvim"
+$env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S%p"
+
 $env.EDITOR = "nvim"
 
 use std/util "path add"
-$env.path ++= ["/opt/homebrew/bin:$PATH",
-                "/home/linuxbrew/.linuxbrew/bin:$PATH",
-                "/usr/local/bin:$PATH",
-                "/home/aidan/.cargo/bin:$PATH",
-                "/Users/aidan/.cargo/bin:$PATH",
-                "/usr/local/opt/openssl@1.1/bin:$PATH",
-                "/Users/aidan/Library/pnpm:$PATH",
-                "/Users/aidan/anaconda3/bin:$PATH",
-                "/Users/aidans/.tmuxifier/bin:$PATH",
-                "$HOME/.emacs.d/bin:$PATH",
-                "$HOME/go/bin:$PATH",
-                "$HOME/.cargo/bin:$PATH",
-                "/home/aidan/.local/share/bob/nvim-bin:$PATH",
-                "/Users/aidan/.local/share/bob/nvim-bin:$PATH",
-                "/home/aidan/.cache/rebar3/bin:$PATH",
-                "/home/aidan/.modular/pkg/packages.modular.com_max/bin:$PATH",
-                "/home/aidan/.modular/pkg/packages.modular.com_mojo/bin:$PATH",
-                "/Users/aidan/projects/ngrrram/target/release:$PATH",
-                "/Users/aidan/.config/emacs/bin:$PATH",
-                "/home/aidan/.config/emacs/bin:$PATH",
-                "/home/aidan/builds/flutter/bin:$PATH",
-                "/Users/aidan/builds/flutter/bin:$PATH",
-                "/Users/aidan/.opam/default/bin:$PATH"]
+path add "/opt/homebrew/bin"
+path add "/home/linuxbrew/.linuxbrew/bin"
+path add "/usr/local/bin"
+path add "/home/aidan/.cargo/bin"
+path add "/Users/aidan/.cargo/bin"
+path add "/Users/aidan/Library/pnpm"
+path add "$HOME/.emacs.d/bin"
+path add "$HOME/go/bin"
+path add "$HOME/.cargo/bin"
+path add "/home/aidan/.cache/rebar3/bin"
+path add "/home/aidan/.modular/pkg/packages.modular.com_max/bin"
+path add "/home/aidan/.modular/pkg/packages.modular.com_mojo/bin"
+path add "/Users/aidan/.config/emacs/bin"
+path add "/home/aidan/.config/emacs/bin"
+path add "/home/aidan/builds/flutter/bin"
+path add "/Users/aidan/builds/flutter/bin"
+path add "/Users/aidan/.opam/default/bin"
+path add "$HOME/.nix-profile/bin"
+path add "$HOME/.nix-profile/etc/bin"
+path add "/etc/profiles/per-user/aidan/bin"
+path add "/nix/var/nix/profiles/default/bin"
+path add "/run/current-system/sw/bin"
 
-$env.CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense" # optional
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 

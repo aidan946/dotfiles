@@ -11,6 +11,7 @@ fish_add_path /nix/var/nix/profiles/default/bin
 fish_add_path $HOME/.nix-profile/bin
 fish_add_path $HOME/.nix-profile/etc/bin
 fish_add_path /run/current-system/sw/bin
+fish_add_path /opt/homebrew/opt/libpq/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
