@@ -26,7 +26,16 @@ return {
         version = '*',
       },
       'echasnovski/mini.icons',
-      { 'fang2hou/blink-copilot' },
+      {
+        'supermaven-inc/supermaven-nvim',
+        opts = {
+          disable_inline_completion = true,
+          disable_keymaps = true,
+        },
+      },
+      {
+        'huijiro/blink-cmp-supermaven',
+      },
     },
     event = 'InsertEnter',
     ---@module 'blink.cmp'
@@ -51,15 +60,14 @@ return {
         },
       },
       sources = {
-        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'supermaven', 'lsp', 'path', 'snippets', 'buffer' },
         per_filetype = {
           lua = { inherit_defaults = true, 'lazydev' },
         },
         providers = {
-          copilot = {
-            name = 'copilot',
-            module = 'blink-copilot',
-            score_offset = 100,
+          supermaven = {
+            name = 'supermaven',
+            module = 'blink-cmp-supermaven',
             async = true,
           },
           lazydev = {
@@ -77,21 +85,6 @@ return {
         ['<C-y>'] = { 'select_and_accept' },
         ['<C-p>'] = { 'select_prev', 'fallback' },
         ['<C-n>'] = { 'select_next', 'fallback' },
-      },
-    },
-  },
-
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    build = ':Copilot auth',
-    event = 'InsertEnter',
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      filetypes = {
-        markdown = true,
-        help = true,
       },
     },
   },
