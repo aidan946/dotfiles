@@ -15,7 +15,7 @@
     "features": {
         "edit_prediction_provider": "zed"
     },
-    "buffer_font_family": "MonoLisa",
+    "buffer_font_family": "Maple Mono",
     "buffer_font_fallbacks": null,
     "buffer_font_features": {
         // Disable ligatures:
@@ -24,7 +24,7 @@
     "buffer_font_size": 14,
     "buffer_font_weight": 400,
     "buffer_line_height": "standard",
-    "ui_font_family": "MonoLisa",
+    "ui_font_family": "Maple Mono",
     "ui_font_fallbacks": null,
     "ui_font_features": {
         // Disable ligatures:

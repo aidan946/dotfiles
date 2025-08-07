@@ -13,6 +13,7 @@
     iosevka
     fira-code
     lilex
+    maple-mono.truetype
 
     libyaml
     libiconv
@@ -36,6 +37,7 @@
     eza
     yazi
     lazygit
+    lazysql
     lazyjj
     carapace
 

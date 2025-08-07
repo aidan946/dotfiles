@@ -70,7 +70,7 @@ return {
       { '[[', desc = 'Prev Reference' },
     },
   },
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
+  { 'folke/todo-comments.nvim', event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' }, dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
   {
     'folke/trouble.nvim',
     cmd = { 'TroubleToggle', 'Trouble' },

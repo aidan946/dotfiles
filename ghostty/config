@@ -1,4 +1,4 @@
-font-family = "MonoLisa"
+font-family = "Maple Mono"
 font-style = "Regular"
 font-size = 14
 theme = kanagawa_wave
@@ -9,3 +9,5 @@ window-padding-y = 8
 
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
+
+auto-update-channel = tip
