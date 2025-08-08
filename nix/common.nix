@@ -38,7 +38,6 @@
     yazi
     lazygit
     lazysql
-    lazyjj
     carapace
 
     mise
@@ -65,17 +64,17 @@
 
   home.file = {
     ".zshrc".source = ../.zshrc;
-    ".config/doom".source = ../doom;
+    #".config/doom".source = ../doom;
     ".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
-    ".config/helix".source = ../helix;
+    #".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
-    ".config/kitty".source = ../kitty;
+    #".config/kitty".source = ../kitty;
     #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
-    ".config/nushell/env.nu".source = ../nushell/env.nu;
-    ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/mise.nu".source = ../nushell/mise.nu;
+    #".config/nushell/env.nu".source = ../nushell/env.nu;
+    #".config/nushell/config.nu".source = ../nushell/config.nu;
+    #".config/nushell/mise.nu".source = ../nushell/mise.nu;
     ".config/nvim".source = ../nvim;
     ".config/skhd".source = ../skhd;
     ".config/starship".source = ../starship;
@@ -85,7 +84,7 @@
     ".config/yazi".source = ../yazi;
     ".config/zed/keymap.json".source = ../zed/keymap.json;
     ".config/zed/settings.json".source = ../zed/settings.json;
-    ".config/zellij".source = ../zellij;
+    #".config/zellij".source = ../zellij;
   };
 
   programs.git = {
