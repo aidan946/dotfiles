@@ -6,29 +6,6 @@ return {
     version = '1.*',
     dependencies = {
       {
-        'L3MON4D3/LuaSnip',
-        lazy = true,
-        version = '2.*',
-        build = (function()
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load { paths = { vim.fn.stdpath 'config' .. '/snippets' } }
-            end,
-          },
-        },
-        opts = {
-          history = true,
-          delete_check_events = 'TextChanged',
-        },
-      },
-      {
         'saghen/blink.compat',
         version = '*',
       },
@@ -41,6 +18,20 @@ return {
       },
       {
         'huijiro/blink-cmp-supermaven',
+      },
+      {
+        'echasnovski/mini.snippets',
+        lazy = true,
+        version = false,
+        opts = function()
+          local gen_loader = require('mini.snippets').gen_loader
+          return {
+            snippets = {
+              --gen_loader.from_file(vim.fn.expand '~/.config/nvim/snippets/global.json'),
+              gen_loader.from_lang(),
+            },
+          }
+        end,
       },
       'folke/lazydev.nvim',
     },
@@ -74,7 +65,7 @@ return {
         },
       },
 
-      snippets = { preset = 'luasnip' },
+      snippets = { preset = 'mini_snippets' },
 
       fuzzy = { implementation = 'prefer_rust_with_warning' },
 

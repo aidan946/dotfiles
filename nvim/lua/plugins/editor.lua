@@ -35,41 +35,6 @@ return {
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
-  {
-    'RRethy/vim-illuminate',
-    event = 'BufReadPre',
-    opts = {
-      delay = 200,
-      large_file_cutoff = 2000,
-      large_file_overrides = {
-        providers = { 'lsp' },
-      },
-    },
-    config = function(_, opts)
-      require('illuminate').configure(opts)
-
-      local function map(key, dir, buffer)
-        vim.keymap.set('n', key, function()
-          require('illuminate')['goto_' .. dir .. '_reference'](false)
-        end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. ' Reference', buffer = buffer })
-      end
-
-      map(']]', 'next')
-      map('[[', 'prev')
-
-      vim.api.nvim_create_autocmd('FileType', {
-        callback = function()
-          local buffer = vim.api.nvim_get_current_buf()
-          map(']]', 'next', buffer)
-          map('[[', 'prev', buffer)
-        end,
-      })
-    end,
-    keys = {
-      { ']]', desc = 'Next Reference' },
-      { '[[', desc = 'Prev Reference' },
-    },
-  },
   { 'folke/todo-comments.nvim', event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' }, dependencies = { 'nvim-lua/plenary.nvim' }, opts = {} },
   {
     'folke/trouble.nvim',
@@ -108,67 +73,6 @@ return {
           end
         end,
         desc = 'Next trouble/quickfix item',
-      },
-    },
-  },
-  {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    opts = {
-      menu = {
-        width = vim.api.nvim_win_get_width(0) - 4,
-      },
-    },
-    keys = {
-      {
-        '<leader>H',
-        function()
-          require('harpoon'):list():append()
-        end,
-        desc = 'Harpoon file',
-      },
-      {
-        '<leader>h',
-        function()
-          local harpoon = require 'harpoon'
-          harpoon.ui:toggle_quick_menu(harpoon:list())
-        end,
-        desc = 'Harpoon quick menu',
-      },
-      {
-        '<leader>1',
-        function()
-          require('harpoon'):list():select(1)
-        end,
-        desc = 'Harpoon to file 1',
-      },
-      {
-        '<leader>2',
-        function()
-          require('harpoon'):list():select(2)
-        end,
-        desc = 'Harpoon to file 2',
-      },
-      {
-        '<leader>3',
-        function()
-          require('harpoon'):list():select(3)
-        end,
-        desc = 'Harpoon to file 3',
-      },
-      {
-        '<leader>4',
-        function()
-          require('harpoon'):list():select(4)
-        end,
-        desc = 'Harpoon to file 4',
-      },
-      {
-        '<leader>5',
-        function()
-          require('harpoon'):list():select(5)
-        end,
-        desc = 'Harpoon to file 5',
       },
     },
   },

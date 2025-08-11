@@ -1,12 +1,4 @@
 return {
-  -- Tokyo night
-  -- {
-  --   'folke/tokyonight.nvim',
-  --   priority = 1000,
-  --   init = function()
-  --     vim.cmd.colorscheme 'tokyonight-moon'
-  --   end,
-  -- },
   {
     'rebelot/kanagawa.nvim',
     priority = 1000,
@@ -16,9 +8,6 @@ return {
       }
       vim.cmd.colorscheme 'kanagawa-wave'
     end,
-  },
-  {
-    'nvim-tree/nvim-web-devicons',
   },
   {
     'akinsho/bufferline.nvim',
@@ -130,7 +119,6 @@ return {
       end
     end,
     opts = function()
-      -- PERF: we don't need this lualine require madness 🤷
       local lualine_require = require 'lualine_require'
       lualine_require.require = require
 
@@ -153,48 +141,20 @@ return {
     'folke/which-key.nvim',
     event = 'VimEnter',
     opts = {
-      icons = {
-        mappings = vim.g.have_nerd_font,
-        keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
-        },
-      },
+      preset = 'helix',
 
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        mode = { 'n', 'v' },
+        { '<leader>c', group = 'Code' },
+        { '<leader>d', group = 'Document' },
+        { '<leader>g', group = 'Git' },
+        { '<leader>r', group = 'Rename' },
+        { '<leader>s', group = 'Search' },
+        { '<leader>w', group = 'Workspace' },
+        { '<leader>x', group = 'Quickfix', icon = { icon = '󱖫 ', color = 'green' } },
+        { '<leader>t', group = 'Toggle' },
+        { '<leader>u', group = 'Ui', icon = { icon = '󰙵 ', color = 'cyan' } },
+        { '<leader>h', group = 'Git [H]unk' },
       },
     },
   },
