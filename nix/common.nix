@@ -13,7 +13,7 @@
     iosevka
     fira-code
     lilex
-    maple-mono.truetype
+    maple-mono.opentype
 
     libyaml
     libiconv
@@ -51,7 +51,7 @@
     fd
     fzf
     imagemagick
-    tectonic
+    # tectonic
     mermaid-cli
     gh
 

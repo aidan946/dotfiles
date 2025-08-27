@@ -923,13 +923,13 @@
             }
         },
         "JSON": {
-            "tab_size": 4,
+            "tab_size": 2,
             "prettier": {
                 "allowed": true
             }
         },
         "JSONC": {
-            "tab_size": 4,
+            "tab_size": 2,
             "prettier": {
                 "allowed": true
             }
