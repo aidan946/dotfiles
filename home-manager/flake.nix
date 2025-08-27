@@ -10,11 +10,13 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       home-manager.useGlobalPkgs = true;
       homeConfigurations."aidan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

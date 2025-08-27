@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.homeDirectory = "/home/aidan";
@@ -6,14 +6,13 @@
   imports = [ ../nix/common.nix ];
 
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; 
-    [
-      hyprpaper
-      waybar
-      gimp3
-      wl-clipboard
-      sqlite
-      webcord
+  home.packages = with pkgs; [
+    hyprpaper
+    waybar
+    gimp3
+    wl-clipboard
+    sqlite
+    webcord
   ];
 
   dconf.settings = {

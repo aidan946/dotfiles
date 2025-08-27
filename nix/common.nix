@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ _config, pkgs, ... }:
 
 {
   home.username = "aidan";
@@ -6,14 +6,13 @@
 
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs;
-  [
+  home.packages = with pkgs; [
     nerd-fonts.iosevka
     commit-mono
     iosevka
     fira-code
     lilex
-    maple-mono.opentype
+    maple-mono.variable
 
     libyaml
     libiconv
@@ -43,6 +42,8 @@
     mise
     opam
     uv
+    nil
+    nixfmt-rfc-style
 
     clang
 
@@ -82,8 +83,8 @@
     ".config/waybar".source = ../waybar;
     ".config/yabai".source = ../yabai;
     ".config/yazi".source = ../yazi;
-    ".config/zed/keymap.json".source = ../zed/keymap.json;
-    ".config/zed/settings.json".source = ../zed/settings.json;
+    #".config/zed/keymap.json".source = ../zed/keymap.json;
+    #".config/zed/settings.json".source = ../zed/settings.json;
     #".config/zellij".source = ../zellij;
   };
 

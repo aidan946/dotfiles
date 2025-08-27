@@ -546,11 +546,6 @@
     },
     // The settings for slash commands.
     "slash_commands": {
-        // Settings for the `/docs` slash command.
-        "docs": {
-            // Whether `/docs` is enabled.
-            "enabled": false
-        },
         // Settings for the `/project` slash command.
         "project": {
             // Whether `/project` is enabled.
@@ -923,13 +918,13 @@
             }
         },
         "JSON": {
-            "tab_size": 2,
+            "tab_size": 4,
             "prettier": {
                 "allowed": true
             }
         },
         "JSONC": {
-            "tab_size": 2,
+            "tab_size": 4,
             "prettier": {
                 "allowed": true
             }
