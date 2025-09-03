@@ -13,6 +13,7 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      folds = { enable = true },
     },
     init = function()
       local list = require('nvim-treesitter.parsers').get_parser_configs()
