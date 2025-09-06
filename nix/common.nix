@@ -38,6 +38,9 @@
     lazygit
     lazysql
     carapace
+    postgresql
+    wget
+    ghostscript
 
     mise
     opam
@@ -52,7 +55,7 @@
     fd
     fzf
     imagemagick
-    # tectonic
+    tectonic
     mermaid-cli
     gh
 
@@ -60,7 +63,6 @@
     exercism
 
     obsidian
-    postgresql
   ];
 
   home.file = {
@@ -103,6 +105,7 @@
       };
       ui = {
         default-command = "log";
+        # diff-editor = "nvim";
       };
     };
   };
