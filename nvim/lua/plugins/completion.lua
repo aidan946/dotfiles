@@ -9,16 +9,16 @@ return {
         'saghen/blink.compat',
         version = '*',
       },
-      {
-        'supermaven-inc/supermaven-nvim',
-        opts = {
-          disable_inline_completion = true,
-          disable_keymaps = true,
-        },
-      },
-      {
-        'huijiro/blink-cmp-supermaven',
-      },
+      -- {
+      --   'supermaven-inc/supermaven-nvim',
+      --   opts = {
+      --     disable_inline_completion = true,
+      --     disable_keymaps = true,
+      --   },
+      -- },
+      -- {
+      --   'huijiro/blink-cmp-supermaven',
+      -- },
       {
         'echasnovski/mini.snippets',
         lazy = true,
@@ -27,7 +27,7 @@ return {
           local gen_loader = require('mini.snippets').gen_loader
           return {
             snippets = {
-              --gen_loader.from_file(vim.fn.expand '~/.config/nvim/snippets/global.json'),
+              gen_loader.from_file(vim.fn.expand '~/.config/nvim/snippets/global.json'),
               gen_loader.from_lang(),
             },
           }
@@ -51,16 +51,16 @@ return {
       },
 
       sources = {
-        default = { 'supermaven', 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
         per_filetype = {
           lua = { inherit_defaults = true, 'lazydev' },
         },
         providers = {
-          supermaven = {
-            name = 'supermaven',
-            module = 'blink-cmp-supermaven',
-            async = true,
-          },
+          -- supermaven = {
+          --   name = 'supermaven',
+          --   module = 'blink-cmp-supermaven',
+          --   async = true,
+          -- },
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },

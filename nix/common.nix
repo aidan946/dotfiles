@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     nerd-fonts.iosevka
     commit-mono
-    iosevka
+    #iosevka
     fira-code
     lilex
     maple-mono.variable
@@ -61,8 +61,6 @@
 
     codecrafters-cli
     exercism
-
-    obsidian
   ];
 
   home.file = {
