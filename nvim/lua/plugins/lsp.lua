@@ -28,8 +28,7 @@ return {
       { 'saghen/blink.cmp' },
     },
     config = function()
-      require('lspconfig').gleam.setup {}
-
+      vim.lsp.enable 'gleam'
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
@@ -38,11 +37,32 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+          map('grr', function()
+            Snacks.picker.lsp_references()
+          end, '[G]oto [R]eferences')
+          map('gri', function()
+            Snacks.picker.lsp_implementations()
+          end, '[G]oto [I]mplementation')
+          map('grd', function()
+            Snacks.picker.lsp_definitions()
+          end, '[G]oto [D]efinition')
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gO', function()
+            Snacks.picker.lsp_symbols()
+          end, 'Open Document Symbols')
+          map('gW', function()
+            Snacks.picker.lsp_workspace_symbols()
+          end, 'Open Workspace Symbols')
+          map('grt', function()
+            Snacks.picker.lsp_type_definitions()
+          end, '[G]oto [T]ype Definition')
 
+          ---@param client vim.lsp.Client
+          ---@param method vim.lsp.protocol.Method
+          ---@param bufnr? integer some lsp support methods only in specific files
+          ---@return boolean
           local function client_supports_method(client, method, bufnr)
             return client:supports_method(method, bufnr)
           end
@@ -112,6 +132,7 @@ return {
         vtsls = {},
         gopls = {},
         rust_analyzer = {},
+        clangd = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -177,9 +198,9 @@ return {
     },
   },
   { 'numToStr/Comment.nvim', opts = {} },
-  {
-    'aidan946/ocaml.nvim',
-    build = 'make',
-    event = 'VeryLazy',
-  },
+  -- {
+  --   'aidan946/ocaml.nvim',
+  --   build = 'make',
+  --   event = 'VeryLazy',
+  -- },
 }

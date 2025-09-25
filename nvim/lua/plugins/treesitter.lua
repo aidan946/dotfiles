@@ -6,7 +6,7 @@ return {
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'nu', 'query', 'regex', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'nu', 'query', 'regex', 'vim', 'vimdoc' },
       auto_install = true,
       highlight = {
         enable = true,
@@ -17,7 +17,7 @@ return {
     },
     init = function()
       local list = require('nvim-treesitter.parsers').get_parser_configs()
-      list.reason = {
+      listareason = {
         install_info = {
           url = 'https://github.com/reasonml-editor/tree-sitter-reason',
           files = { 'src/parser.c', 'src/scanner.c' },

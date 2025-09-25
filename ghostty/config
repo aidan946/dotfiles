@@ -1,11 +1,12 @@
 font-family = "Maple Mono"
 font-style = "Regular"
-font-size = 14
+font-size = 15
 theme = kanagawa_wave
 window-padding-x = 8
 window-padding-y = 8
 
+shell-integration-features = ssh-env
+
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 
-auto-update-channel = tip

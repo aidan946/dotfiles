@@ -65,6 +65,7 @@
 
   home.file = {
     ".zshrc".source = ../.zshrc;
+    ".config/aerospace".source = ../aerospace;
     #".config/doom".source = ../doom;
     ".config/fish".source = ../fish;
     ".config/ghostty".source = ../ghostty;
@@ -81,7 +82,7 @@
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
     ".config/waybar".source = ../waybar;
-    ".config/yabai".source = ../yabai;
+    #".config/yabai".source = ../yabai;
     ".config/yazi".source = ../yazi;
     #".config/zed/keymap.json".source = ../zed/keymap.json;
     #".config/zed/settings.json".source = ../zed/settings.json;
