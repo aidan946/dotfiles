@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     nerd-fonts.iosevka
     commit-mono
-    #iosevka
+    iosevka
     fira-code
     lilex
     maple-mono.variable
@@ -91,8 +91,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Aidan";
-    userEmail = "aidanstevens90@gmail.com";
+    settings.user = {
+      name = "Aidan";
+      email = "aidanstevens90@gmail.com";
+    };
   };
 
   programs.jujutsu = {
