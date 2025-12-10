@@ -27,12 +27,13 @@
 
           nixpkgs.config.allowUnfree = true;
           environment.systemPackages = with pkgs; [
-            yabai
             beam28Packages.rebar3
           ];
 
           system.primaryUser = "aidan";
-          users.users.aidan.home = "/Users/aidan";
+          users.users.aidan = {
+            home = "/Users/aidan";
+          };
 
           system.defaults = {
             dock.autohide = true;
@@ -42,6 +43,7 @@
             NSGlobalDomain.InitialKeyRepeat = 15;
           };
 
+          nix.linux-builder.enable = true;
           nix.settings.experimental-features = "nix-command flakes";
           system.configurationRevision = self.rev or self.dirtyRev or null;
           system.stateVersion = 6;

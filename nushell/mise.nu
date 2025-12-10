@@ -1,4 +1,39 @@
+def "parse vars" [] {
+  $in | from csv --noheaders --no-infer | rename 'op' 'name' 'value'
+}
+
+def --env "update-env" [] {
+  for $var in $in {
+    if $var.op == "set" {
+      if ($var.name | str upcase) == 'PATH' {
+        $env.PATH = ($var.value | split row (char esep))
+      } else {
+        load-env {($var.name): $var.value}
+      }
+    } else if $var.op == "hide" and $var.name in $env {
+      hide-env $var.name
+    }
+  }
+}
 export-env {
+
+  "hide,CARGO_HOME,
+hide,DOTNET_ROOT,
+hide,GOBIN,
+hide,GOROOT,
+hide,JAVA_HOME,
+hide,KOTLIN_HOME,
+hide,LUA_INIT,
+hide,MIX_ARCHIVES,
+hide,MIX_HOME,
+hide,ODIN_ROOT,
+hide,RUSTUP_HOME,
+hide,RUSTUP_TOOLCHAIN,
+set,PATH,/Users/aidan/.opam/default/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/libpq/bin:/nix/var/nix/profiles/default/bin:/home/aidan/.nix-profile/bin:/run/current-system/sw/bin:/usr/bin:/etc/profiles/per-user/aidan/bin:/Users/aidan/.config/emacs/bin:/usr/bin|x1e/run/current-system/sw/bin:/Applications/Ghostty.app/Contents/MacOS:/usr/local/bin:/System/Cryptexes/App/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/usr/local/share/dotnet:~/.dotnet/tools
+hide,MISE_SHELL,
+hide,__MISE_DIFF,
+hide,__MISE_DIFF,
+" | parse vars | update-env
   $env.MISE_SHELL = "nu"
   let mise_hook = {
     condition: { "MISE_SHELL" in $env }
@@ -9,13 +44,10 @@ export-env {
 }
 
 def --env add-hook [field: cell-path new_hook: any] {
+  let field = $field | split cell-path | update optional true | into cell-path
   let old_config = $env.config? | default {}
-  let old_hooks = $old_config | get $field --ignore-errors | default []
+  let old_hooks = $old_config | get $field | default []
   $env.config = ($old_config | upsert $field ($old_hooks ++ [$new_hook]))
-}
-
-def "parse vars" [] {
-  $in | from csv --noheaders --no-infer | rename 'op' 'name' 'value'
 }
 
 export def --env --wrapped main [command?: string, --help, ...rest: string] {
@@ -31,20 +63,6 @@ export def --env --wrapped main [command?: string, --help, ...rest: string] {
     | update-env
   } else {
     ^"/opt/homebrew/bin/mise" $command ...$rest
-  }
-}
-
-def --env "update-env" [] {
-  for $var in $in {
-    if $var.op == "set" {
-      if $var.name == 'PATH' {
-        $env.PATH = ($var.value | split row (char esep))
-      } else {
-        load-env {($var.name): $var.value}
-      }
-    } else if $var.op == "hide" {
-      hide-env $var.name
-    }
   }
 }
 

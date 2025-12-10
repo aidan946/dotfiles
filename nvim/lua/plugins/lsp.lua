@@ -38,7 +38,7 @@ return {
           end
 
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+          map('<leader>ca', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
           map('grr', function()
             Snacks.picker.lsp_references()
           end, '[G]oto [R]eferences')
@@ -129,6 +129,7 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
+        copilot = {},
         vtsls = {},
         gopls = {},
         rust_analyzer = {},

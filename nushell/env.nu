@@ -1,7 +1,7 @@
 # Default Nushell Environment Config File
 # These "sensible defaults" are set before the user's `env.nu` is loaded
 #
-# version = "0.106.1"
+# version = "0.109.2"
 
 $env.PROMPT_COMMAND = {||
     let dir = match (do -i { $env.PWD | path relative-to $nu.home-path }) {
@@ -40,34 +40,24 @@ $env.config.show_banner = false
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
 $env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S%p"
-
-$env.EDITOR = "nvim"
+$env.XDG_CONFIG_HOME = $"($env.home)/.config"
+$env.STARSHIP_CONFIG = $"($env.home)/.config/starship/starship.toml"
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 
 use std/util "path add"
 path add "/opt/homebrew/bin"
 path add "/home/linuxbrew/.linuxbrew/bin"
 path add "/usr/local/bin"
-path add "/home/aidan/.cargo/bin"
-path add "/Users/aidan/.cargo/bin"
-path add "/Users/aidan/Library/pnpm"
-path add "$HOME/.emacs.d/bin"
 path add "$HOME/go/bin"
 path add "$HOME/.cargo/bin"
 path add "/home/aidan/.cache/rebar3/bin"
-path add "/home/aidan/.modular/pkg/packages.modular.com_max/bin"
-path add "/home/aidan/.modular/pkg/packages.modular.com_mojo/bin"
-path add "/Users/aidan/.config/emacs/bin"
-path add "/home/aidan/.config/emacs/bin"
-path add "/home/aidan/builds/flutter/bin"
-path add "/Users/aidan/builds/flutter/bin"
-path add "/Users/aidan/.opam/default/bin"
 path add "$HOME/.nix-profile/bin"
+path add "$HOME/.ghcup/bin"
 path add "$HOME/.nix-profile/etc/bin"
 path add "/etc/profiles/per-user/aidan/bin"
 path add "/nix/var/nix/profiles/default/bin"
 path add "/run/current-system/sw/bin"
 
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 

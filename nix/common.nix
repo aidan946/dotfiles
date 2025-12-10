@@ -1,4 +1,4 @@
-{ _config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "aidan";
@@ -12,7 +12,7 @@
     iosevka
     fira-code
     lilex
-    maple-mono.variable
+    maple-mono.truetype
 
     libyaml
     libiconv
@@ -36,13 +36,13 @@
     eza
     yazi
     lazygit
+    jjui
     lazysql
     carapace
     postgresql
     wget
     ghostscript
 
-    mise
     opam
     uv
     nil
@@ -58,6 +58,7 @@
     tectonic
     mermaid-cli
     gh
+    opencode
 
     codecrafters-cli
     exercism
@@ -66,24 +67,19 @@
   home.file = {
     ".zshrc".source = ../.zshrc;
     ".config/aerospace".source = ../aerospace;
-    #".config/doom".source = ../doom;
-    ".config/fish".source = ../fish;
+    ".config/fish/config.fish".source = ../fish/config.fish;
     ".config/ghostty".source = ../ghostty;
-    #".config/helix".source = ../helix;
     ".config/hypr".source = ../hypr;
-    #".config/kitty".source = ../kitty;
+    ".config/kitty".source = ../kitty;
     #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
-    #".config/nushell/env.nu".source = ../nushell/env.nu;
-    #".config/nushell/config.nu".source = ../nushell/config.nu;
-    #".config/nushell/mise.nu".source = ../nushell/mise.nu;
+    ".config/nushell/env.nu".source = ../nushell/env.nu;
+    ".config/nushell/config.nu".source = ../nushell/config.nu;
+    ".config/nushell/mise.nu".source = ../nushell/mise.nu;
     ".config/nvim".source = ../nvim;
-    ".config/skhd".source = ../skhd;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
     ".config/waybar".source = ../waybar;
-    #".config/yabai".source = ../yabai;
-    ".config/yazi".source = ../yazi;
     #".config/zed/keymap.json".source = ../zed/keymap.json;
     #".config/zed/settings.json".source = ../zed/settings.json;
     #".config/zellij".source = ../zellij;

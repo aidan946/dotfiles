@@ -29,11 +29,5 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Aidan";
-    userEmail = "aidanstevens90@gmail.com";
-  };
-
   programs.home-manager.enable = true;
 }

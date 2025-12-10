@@ -9,16 +9,7 @@ return {
         'saghen/blink.compat',
         version = '*',
       },
-      -- {
-      --   'supermaven-inc/supermaven-nvim',
-      --   opts = {
-      --     disable_inline_completion = true,
-      --     disable_keymaps = true,
-      --   },
-      -- },
-      -- {
-      --   'huijiro/blink-cmp-supermaven',
-      -- },
+      { 'fang2hou/blink-copilot' },
       {
         'echasnovski/mini.snippets',
         lazy = true,
@@ -51,16 +42,16 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
         per_filetype = {
           lua = { inherit_defaults = true, 'lazydev' },
         },
         providers = {
-          -- supermaven = {
-          --   name = 'supermaven',
-          --   module = 'blink-cmp-supermaven',
-          --   async = true,
-          -- },
+          copilot = {
+            name = 'copilot',
+            module = 'blink-copilot',
+            async = true,
+          },
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
