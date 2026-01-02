@@ -7,11 +7,6 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    nerd-fonts.iosevka
-    commit-mono
-    iosevka
-    fira-code
-    lilex
     maple-mono.truetype
 
     libyaml
@@ -21,14 +16,11 @@
     libpq
 
     fish
-    nushell
 
     git
     jujutsu
     vim
     neovim
-    helix
-    emacs
     tmux
     zellij
     starship
@@ -70,18 +62,11 @@
     ".config/fish/config.fish".source = ../fish/config.fish;
     ".config/ghostty".source = ../ghostty;
     ".config/hypr".source = ../hypr;
-    ".config/kitty".source = ../kitty;
-    #".config/mise".source = ../mise;
     ".config/nix".source = ../nix;
-    ".config/nushell/env.nu".source = ../nushell/env.nu;
-    ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/mise.nu".source = ../nushell/mise.nu;
     ".config/nvim".source = ../nvim;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
     ".config/waybar".source = ../waybar;
-    #".config/zed/keymap.json".source = ../zed/keymap.json;
-    #".config/zed/settings.json".source = ../zed/settings.json;
     #".config/zellij".source = ../zellij;
   };
 

@@ -56,7 +56,7 @@ if opts.tab_bar_background is None:
     # opts.tab_bar_background = Color(229, 192, 123) # yellowish
 
 
-config = {"tab_width": 25, "rewrite_title": True}
+config = {"tab_width": 50, "rewrite_title": True}
 colors = {
     "fg": as_rgb(color_as_int(opts.inactive_tab_foreground)),
     "bg": as_rgb(color_as_int(opts.inactive_tab_background)),
@@ -74,17 +74,17 @@ symbols = {
     "overflow_right": "»",
 }
 icons = {
-    "kitty": "😺",
-    "window": " ⊞",  # alt: 🪟
-    "tab": "📑",
-    "host": "🖥️",
-    "user": "👨",
-    "home": "🏠",
-    "root": "🌳",
-    "trash": "🗑️",
-    "ssh": "⚡",
-    "git": "",
-    "clock": "🕐",
+    "kitty": "",
+    "window": " 󱇛",  # alt: 🪟
+    "tab": "󰓩",
+    "host": "󰍹",
+    "user": "",
+    "home": "",
+    "root": "",
+    "trash": "",
+    "ssh": "󰣀",
+    "git": "",
+    "clock": "",
 }
 
 _overflow_state = {

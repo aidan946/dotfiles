@@ -43,7 +43,6 @@
             NSGlobalDomain.InitialKeyRepeat = 15;
           };
 
-          nix.linux-builder.enable = true;
           nix.settings.experimental-features = "nix-command flakes";
           system.configurationRevision = self.rev or self.dirtyRev or null;
           system.stateVersion = 6;

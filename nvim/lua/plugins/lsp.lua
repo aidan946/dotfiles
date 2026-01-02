@@ -199,9 +199,9 @@ return {
     },
   },
   { 'numToStr/Comment.nvim', opts = {} },
-  -- {
-  --   'aidan946/ocaml.nvim',
-  --   build = 'make',
-  --   event = 'VeryLazy',
-  -- },
+  {
+    'aidan946/ocaml.nvim',
+    build = 'make',
+    event = 'VeryLazy',
+  },
 }
