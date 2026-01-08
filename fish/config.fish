@@ -27,4 +27,4 @@ mise activate fish | source
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH # ghcup-env
 
-source ~/.config/fish/themes/tokyonight_moon.fish
+source ~/.config/fish/themes/teide_darker.fish
