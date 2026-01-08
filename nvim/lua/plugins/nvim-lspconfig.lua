@@ -1,18 +1,5 @@
 return {
   {
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-        { path = 'LazyVim', words = { 'LazyVim' } },
-        { path = 'snacks.nvim', words = { 'Snacks' } },
-        { path = 'lazy.nvim', words = { 'LazyVim' } },
-      },
-    },
-  },
-  { 'Bilal2453/luvit-meta', lazy = true },
-  {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
@@ -163,45 +150,5 @@ return {
         },
       }
     end,
-  },
-
-  {
-    'stevearc/conform.nvim',
-    lazy = false,
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
-    opts = {
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        local disable_filetypes = { c = true, cpp = true }
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-          return nil
-        else
-          return {
-            timeout_ms = 500,
-            lsp_format = 'fallback',
-          }
-        end
-      end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-      },
-    },
-  },
-  { 'numToStr/Comment.nvim', opts = {} },
-  {
-    'aidan946/ocaml.nvim',
-    build = 'make',
-    event = 'VeryLazy',
   },
 }

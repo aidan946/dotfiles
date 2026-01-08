@@ -31,8 +31,4 @@ return {
       { 'reasonml-editor/tree-sitter-reason' },
     },
   },
-  {
-    'fladson/vim-kitty',
-    ft = 'kitty',
-  },
 }
