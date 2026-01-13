@@ -2,7 +2,7 @@
 
 {
   home.username = "aidan";
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
 
   fonts.fontconfig.enable = true;
 
@@ -38,7 +38,7 @@
     opam
     uv
     nil
-    nixfmt-rfc-style
+    nixfmt
 
     clang
 
@@ -60,8 +60,9 @@
     ".zshrc".source = ../.zshrc;
     ".config/aerospace".source = ../aerospace;
     ".config/fish/config.fish".source = ../fish/config.fish;
+    ".config/fish/themes/teide_darker.fish".source = ../fish/themes/teide_darker.fish;
     ".config/ghostty".source = ../ghostty;
-    ".config/hypr".source = ../hypr;
+    ".config/niri".source = ../niri;
     ".config/nix".source = ../nix;
     ".config/nvim".source = ../nvim;
     ".config/starship".source = ../starship;

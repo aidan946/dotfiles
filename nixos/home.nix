@@ -11,6 +11,10 @@
     wl-clipboard
     sqlite
     mise
+    nodejs_25
+    bun
+    odin
+    ruby
     fuzzel
     swaylock
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -32,6 +36,7 @@
   programs.noctalia-shell = {
     enable = true;
   };
+
 
   programs.home-manager.enable = true;
 }
