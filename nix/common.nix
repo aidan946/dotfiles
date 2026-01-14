@@ -60,14 +60,13 @@
     ".zshrc".source = ../.zshrc;
     ".config/aerospace".source = ../aerospace;
     ".config/fish/config.fish".source = ../fish/config.fish;
-    ".config/fish/themes/teide_darker.fish".source = ../fish/themes/teide_darker.fish;
+    ".config/fish/themes/tokyonight_moon.fish".source = ../fish/themes/tokyonight_moon.fish;
     ".config/ghostty".source = ../ghostty;
+    ".config/kitty".source = ../kitty;
     ".config/niri".source = ../niri;
-    ".config/nix".source = ../nix;
     ".config/nvim".source = ../nvim;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
-    ".config/waybar".source = ../waybar;
     #".config/zellij".source = ../zellij;
   };
 
@@ -88,7 +87,7 @@
       };
       ui = {
         default-command = "log";
-        # diff-editor = "nvim";
+        diff-editor = "nvim";
       };
     };
   };

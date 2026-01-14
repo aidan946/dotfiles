@@ -1,4 +1,4 @@
-theme = "kanagawa-transparent"
+theme = "tokyonight_folke"
 
 [editor]
 auto-pairs = false
