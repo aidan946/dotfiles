@@ -36,7 +36,7 @@
     ghostscript
 
     opam
-    uv
+    pixi
     nil
     nixfmt
 

@@ -16,6 +16,7 @@ return {
     },
     config = function()
       vim.lsp.enable 'gleam'
+      vim.lsp.enable 'mojo'
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
