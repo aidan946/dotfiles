@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.color_scheme_dirs = { "/colors" }
-config.color_scheme = "Kanagawa (Gogh)"
+config.color_scheme = "tokyonight_moon"
 config.font = wezterm.font({
 	weight = "Regular",
 	family = "CommitMono",

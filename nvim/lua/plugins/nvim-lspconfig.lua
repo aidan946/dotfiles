@@ -26,11 +26,7 @@ return {
           end
 
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-          vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()
-            require('tiny-code-action').code_action()
-          end, { noremap = true, silent = true })
-
+          map('<leader>ca', function() require('tiny-code-action').code_action() end, '[G]oto Code [A]ction', { 'n', 'x' })
           map('grr', function()
             Snacks.picker.lsp_references()
           end, '[G]oto [R]eferences')

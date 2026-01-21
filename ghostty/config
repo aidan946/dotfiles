@@ -1,7 +1,7 @@
 font-family = "Maple Mono"
 font-style = "Regular"
-font-size = 12
-theme = Gruvbox Material Dark
+font-size = 11
+theme = tokyonight_moon
 window-padding-x = 8
 window-padding-y = 8
 
