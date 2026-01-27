@@ -32,14 +32,13 @@
     jjui
     lazysql
     carapace
-    postgresql
     wget
     ghostscript
 
     opam
     pixi
     nil
-    nixfmt
+    nixd
 
     clang
 

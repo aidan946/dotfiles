@@ -1,98 +1,36 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    branch = 'main',
-    version = false,
+    event = { 'VeryLazy' },
+    lazy = vim.fn.argc(-1) == 0,
+    branch = 'master',
     build = ':TSUpdate',
-    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'VeryLazy' },
-    cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
-    opts_extend = { 'ensure_installed' },
+    main = 'nvim-treesitter.configs',
     opts = {
-      indent = { enable = true },
-      highlight = { enable = true },
-      folds = { enable = true },
-      ensure_installed = {
-        'bash',
-        'c',
-        'diff',
-        'html',
-        'javascript',
-        'jsdoc',
-        'json',
-        'jsonc',
-        'lua',
-        'luadoc',
-        'luap',
-        'markdown',
-        'markdown_inline',
-        'printf',
-        'python',
-        'query',
-        'regex',
-        'toml',
-        'tsx',
-        'typescript',
-        'vim',
-        'vimdoc',
-        'xml',
-        'yaml',
+      ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'nu', 'query', 'regex', 'vim', 'vimdoc' },
+      auto_install = true,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { 'ruby' },
       },
+      indent = { enable = true, disable = { 'ruby' } },
+      folds = { enable = true },
     },
-    config = function(_, opts)
-      local TS = require 'nvim-treesitter'
+    init = function()
+      local list = require('nvim-treesitter.parsers').get_parser_configs()
+      list.reason = {
+        install_info = {
+          url = 'https://github.com/reasonml-editor/tree-sitter-reason',
+          files = { 'src/parser.c', 'src/scanner.c' },
+          branch = 'master',
+        },
+      }
 
-      setmetatable(require 'nvim-treesitter.install', {
-        __newindex = function(_, k)
-          if k == 'compilers' then
-          end
-        end,
-      })
-
-      TS.setup(opts)
-      VimConfig.treesitter.get_installed(true)
-
-      local install = vim.tbl_filter(function(lang)
-        return not VimConfig.treesitter.have(lang)
-      end, opts.ensure_installed or {})
-      if #install > 0 then
-        VimConfig.treesitter.build(function()
-          TS.install(install, { summary = true }):await(function()
-            VimConfig.treesitter.get_installed(true)
-          end)
-        end)
-      end
-
-      vim.api.nvim_create_autocmd('FileType', {
-        group = vim.api.nvim_create_augroup('vimconfig_treesitter', { clear = true }),
-        callback = function(ev)
-          local ft, lang = ev.match, vim.treesitter.language.get_lang(ev.match)
-          if not VimConfig.treesitter.have(ft) then
-            return
-          end
-
-          ---@param feat string
-          ---@param query string
-          local function enabled(feat, query)
-            local f = opts[feat] or {}
-            return f.enable ~= false and not (type(f.disable) == 'table' and vim.tbl_contains(f.disable, lang)) and VimConfig.treesitter.have(ft, query)
-          end
-
-          if enabled('highlight', 'highlights') then
-            pcall(vim.treesitter.start, ev.buf)
-          end
-
-          if enabled('indent', 'indents') then
-            VimConfig.set_default('indentexpr', 'v:lua.VimConfig.treesitter.indentexpr()')
-          end
-
-          if enabled('folds', 'folds') then
-            if VimConfig.set_default('foldmethod', 'expr') then
-              VimConfig.set_default('foldexpr', 'v:lua.VimConfig.treesitter.foldexpr()')
-            end
-          end
-        end,
-      })
+      vim.treesitter.language.add('reason', { filetype = 'reason' })
     end,
+    dependencies = {
+      { 'reasonml-editor/tree-sitter-reason' },
+    },
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
