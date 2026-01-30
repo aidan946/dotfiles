@@ -2,7 +2,8 @@ input {
     keyboard {
         xkb {
         }
-
+        repeat-delay 200
+        repeat-rate 50
         numlock
     }
 
@@ -12,6 +13,7 @@ input {
     }
 
     mouse {
+        accel-profile "flat"
     }
 
     trackpoint {
@@ -20,17 +22,15 @@ input {
 
 output "DP-2" {
     mode "1920x1080@239.761"
-    scale 1.0
-    transform "normal"
-    position x=0 y=0
-    focus-at-startup
+    scale 1
+    position x=3440 y=360
 }
 
 output "DP-1" {
     mode "3440x1440@144.001"
-    scale 1.0
-    transform "normal"
-    position x=1920 y=0
+    scale 1
+    position x=0 y=0
+    focus-at-startup
 }
 
 layout {
@@ -42,9 +42,10 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
     }
 
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion 0.5; }
 
     focus-ring {
         width 4
@@ -81,7 +82,7 @@ layout {
     }
 }
 
-spawn-at-startup "dms" "run"
+//spawn-at-startup "dms" "run"
 spawn-at-startup "polkit-kde-authentication-agent-1"
 spawn-sh-at-startup "vicinae server"
 
@@ -98,15 +99,46 @@ animations {
     // slowdown 3.0
 }
 
-// Open the Zen picture-in-picture player as floating by default.
+window-rule {
+    match app-id="com.mitchellh.ghostty"
+    open-on-workspace "2"
+    match at-startup=true
+}
+
+window-rule {
+    match app-id="zen"
+    open-on-workspace "1"
+    match at-startup=true
+}
+
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
 window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    draw-border-with-background false
+}
+
+// }
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"org.quickshell$"#
+    open-floating true
 }
 
 binds {
