@@ -17,6 +17,7 @@
     libpq
 
     fish
+    nushell
 
     git
     jujutsu
@@ -50,7 +51,8 @@
     tectonic
     mermaid-cli
     gh
-    opencode
+    carapace
+    # opencode
 
     codecrafters-cli
     exercism
@@ -64,6 +66,9 @@
     ".config/ghostty".source = ../ghostty;
     ".config/kitty".source = ../kitty;
     ".config/nvim".source = ../nvim;
+    ".config/nushell/config.nu".source = ../nushell/config.nu;
+    ".config/nushell/env.nu".source = ../nushell/env.nu;
+    ".config/nushell/opam.nu".source = ../nushell/opam.nu;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
     ".config/zellij".source = ../zellij;

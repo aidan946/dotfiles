@@ -1,6 +1,6 @@
 # Nushell Config File
 #
-# version = "0.109.2"
+# version = "0.110.1"
 $env.config.color_config = {
     separator: default
     leading_trailing_space_bg: { attr: n }
@@ -67,11 +67,13 @@ $env.config.color_config = {
     }
 }
 
+use ($nu.default-config-dir | path join mise.nu)
 mkdir ($nu.data-dir | path join "vendor/autoload")
+
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 source ~/.zoxide.nu
-source ~/.config/nushell/mise.nu
-source ~/.cache/carapace/init.nu
+source $"($nu.cache-dir)/carapace.nu"
+#source ~/.config/nushell/mise.nu
 
 alias cd = z

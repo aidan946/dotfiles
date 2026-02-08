@@ -1,10 +1,10 @@
 # Default Nushell Environment Config File
 # These "sensible defaults" are set before the user's `env.nu` is loaded
 #
-# version = "0.109.2"
+# version = "0.110.1"
 
 $env.PROMPT_COMMAND = {||
-    let dir = match (do -i { $env.PWD | path relative-to $nu.home-path }) {
+    let dir = match (do -i { $env.PWD | path relative-to $nu.home-dir }) {
         null => $env.PWD
         '' => '~'
         $relative_pwd => ([~ $relative_pwd] | path join)
@@ -39,26 +39,25 @@ $env.PROMPT_COMMAND_RIGHT = {||
 $env.config.show_banner = false
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
-$env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S%p"
+# $env.config.datetime_format.normal = "%d/%m/%y %I:%M:%S%p"
 $env.XDG_CONFIG_HOME = $"($env.home)/.config"
 $env.STARSHIP_CONFIG = $"($env.home)/.config/starship/starship.toml"
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+$env.CARAPACE_BRIDGES = "zsh,fish,bash,inshellisense"
 
 use std/util "path add"
 path add "/opt/homebrew/bin"
-path add "/home/linuxbrew/.linuxbrew/bin"
-path add "/usr/local/bin"
 path add "$HOME/go/bin"
 path add "$HOME/.cargo/bin"
-path add "/home/aidan/.cache/rebar3/bin"
-path add "$HOME/.nix-profile/bin"
 path add "$HOME/.ghcup/bin"
+path add "$HOME/.nix-profile/bin"
 path add "$HOME/.nix-profile/etc/bin"
-path add "/etc/profiles/per-user/aidan/bin"
-path add "/nix/var/nix/profiles/default/bin"
-path add "/run/current-system/sw/bin"
 
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+mkdir $"($nu.cache-dir)"
+carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
+
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | save $mise_path --force
+
+use opam.nu
 
 zoxide init nushell | save -f ~/.zoxide.nu
