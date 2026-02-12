@@ -1,45 +1,46 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
-
 vim.g.have_nerd_font = true
 
-vim.opt.conceallevel = 1
-vim.opt.termguicolors = true
-
-vim.opt.expandtab = true
-
-vim.opt.number = true
+vim.o.number = true
 vim.opt.relativenumber = true
 
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
+
 vim.opt.showmode = false
 
-vim.opt.breakindent = true
-vim.opt.undofile = true
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.breakindent = true
+vim.o.undofile = true
 
-vim.opt.signcolumn = 'yes'
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.o.signcolumn = 'yes'
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
-vim.opt.list = true
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
-vim.opt.cursorline = true
+vim.o.cursorline = true
 
-vim.opt.scrolloff = 10
+vim.o.scrolloff = 10
+
+vim.o.confirm = true
+
+vim.o.conceallevel = 1
+vim.o.termguicolors = true
+
+vim.o.expandtab = true
 
 vim.opt.fillchars = {
   foldopen = '',
@@ -49,6 +50,7 @@ vim.opt.fillchars = {
   diff = '╱',
   eob = ' ',
 }
+
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldtext = ''
