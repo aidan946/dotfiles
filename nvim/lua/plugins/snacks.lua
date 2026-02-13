@@ -59,7 +59,7 @@ return {
           wo = { wrap = true },
         },
       },
-      --toggle = { enabled = true },
+      toggle = { enabled = false },
       words = { enabled = true },
     },
     keys = {

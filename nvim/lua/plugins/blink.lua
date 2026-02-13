@@ -42,7 +42,7 @@ return {
       },
 
       sources = {
-        default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'copilot', 'lsp', 'omni', 'path', 'snippets', 'buffer' },
         per_filetype = {
           lua = { inherit_defaults = true, 'lazydev' },
         },

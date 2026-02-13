@@ -23,8 +23,9 @@ return {
           end
 
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', function() require('tiny-code-action').code_action() end, '[G]oto Code [A]ction',
-            { 'n', 'x' })
+          map('<leader>ca', function()
+            require('tiny-code-action').code_action()
+          end, '[G]oto Code [A]ction', { 'n', 'x' })
           map('grr', function()
             Snacks.picker.lsp_references()
           end, '[G]oto [R]eferences')
@@ -70,9 +71,9 @@ return {
           end
 
           if client and client:supports_method('textDocument/inlayHint', event.buf) then
-            map('<leader>th',
-              function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end,
-              '[T]oggle Inlay [H]ints')
+            map('<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, '[T]oggle Inlay [H]ints')
           end
         end,
       })
@@ -107,17 +108,20 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local servers = {
+        clangd = {},
         copilot = {},
-        vtsls = {},
+        clojure_lsp = {},
         eslint = {
           settings = {
             workingDirectories = { mode = 'auto' },
             format = { enable = true },
           },
         },
+        expert = {},
         gopls = {},
-        rust_analyzer = {},
-        clangd = {},
+        harper_ls = {},
+        herb_language_server = {},
+        kdl_fmt = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -127,6 +131,23 @@ return {
             },
           },
         },
+        ocaml_lsp = {},
+        ols = {},
+        ruby_lsp = {},
+        ruff = {},
+        rust_analyzer = {},
+        vtsls = {},
+        vue_ls = {
+          settings = {
+            vetur = {
+              useWorkspaceDependencies = true,
+              experimental = {
+                templateInterpolationService = true,
+              },
+            },
+          },
+        },
+        zls = {},
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
@@ -147,7 +168,9 @@ return {
         on_init = function(client)
           if client.workspace_folders then
             local path = client.workspace_folders[1].name
-            if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
+            if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then
+              return
+            end
           end
 
           client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
@@ -170,5 +193,5 @@ return {
       vim.lsp.enable 'gleam'
       vim.lsp.enable 'mojo'
     end,
-  }
+  },
 }

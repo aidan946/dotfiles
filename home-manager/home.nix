@@ -11,7 +11,6 @@
     gimp3
     wl-clipboard
     sqlite
-    mise
     swaylock
   ];
 

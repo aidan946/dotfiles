@@ -7,7 +7,9 @@ return {
     keys = {
       {
         '<leader>f',
-        function() require('conform').format { async = true, lsp_format = 'fallback' } end,
+        function()
+          require('conform').format { async = true, lsp_format = 'fallback' }
+        end,
         mode = '',
         desc = '[F]ormat buffer',
       },
@@ -28,7 +30,7 @@ return {
       formatters_by_ft = {
         eruby = { 'erb_format' },
         lua = { 'stylua' },
-        vue = { 'eslint' },
+        vue = { 'eslint_d' },
       },
     },
   },
