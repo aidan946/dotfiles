@@ -109,6 +109,7 @@ return {
 
       local servers = {
         clangd = {},
+        codebook = {},
         copilot = {},
         clojure_lsp = {},
         eslint = {
@@ -119,7 +120,6 @@ return {
         },
         expert = {},
         gopls = {},
-        harper_ls = {},
         herb_language_server = {},
         kdl_fmt = {},
         lua_ls = {
