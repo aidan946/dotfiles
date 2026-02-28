@@ -41,8 +41,6 @@
     nil
     nixd
 
-    clang
-
     tree-sitter
     ripgrep
     fd
@@ -66,12 +64,12 @@
     ".config/ghostty".source = ../ghostty;
     ".config/kitty".source = ../kitty;
     ".config/nvim".source = ../nvim;
-    ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/env.nu".source = ../nushell/env.nu;
-    ".config/nushell/opam.nu".source = ../nushell/opam.nu;
+    # ".config/nushell/config.nu".source = ../nushell/config.nu;
+    # ".config/nushell/env.nu".source = ../nushell/env.nu;
+    # ".config/nushell/opam.nu".source = ../nushell/opam.nu;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
-    ".config/zellij".source = ../zellij;
+    # ".config/zellij".source = ../zellij;
   };
 
   programs.git = {

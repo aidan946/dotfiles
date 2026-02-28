@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.o.timeoutlen = 2000
+
 vim.g.have_nerd_font = true
 
 vim.o.number = true
@@ -10,7 +12,9 @@ vim.o.mouse = 'a'
 
 vim.opt.showmode = false
 
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
 
 vim.o.breakindent = true
 vim.o.undofile = true

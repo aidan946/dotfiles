@@ -1,0 +1,27 @@
+// ────────────── Input Configuration ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+input {
+    keyboard {
+        xkb {
+            layout "au"
+            options "caps:escape"
+        }
+        repeat-delay 200
+        repeat-rate 40
+
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    focus-follows-mouse
+    workspace-auto-back-and-forth
+}
