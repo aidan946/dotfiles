@@ -60,6 +60,7 @@
   "drop_target_size": 0.2,
   "when_closing_with_no_tabs": "platform_default",
   "on_last_window_closed": "platform_default",
+  "text_rendering_mode": "platform_default",
   "zoomed_padding": true,
 
   "window_decorations": "client",
@@ -112,9 +113,9 @@
     "**/*.crt",
     "**/secrets.yml",
   ],
-
   "use_on_type_format": true,
   "use_autoclose": true,
+  "use_auto_surround": true,
   "auto_indent": true,
   "auto_indent_on_paste": true,
   "always_treat_brackets_as_autoclosed": false,
@@ -159,6 +160,8 @@
     "experimental.denoise": true,
 
     "experimental.legacy_audio_compatible": true,
+    "experimental.output_audio_device": null,
+    "experimental.input_audio_device": null,
   },
 
   "scrollbar": {
@@ -212,7 +215,7 @@
   "sticky_scroll": {
     "enabled": false,
   },
-  "relative_line_numbers": "disabled",
+  "relative_line_numbers": "enabled",
   "search_wrap": true,
   "search": {
     "button": true,
@@ -342,17 +345,38 @@
     "enabled": true,
     "button": true,
     "dock": "right",
-    "agents_panel_dock": "left",
+
     "default_width": 640,
     "default_height": 320,
     "default_view": "thread",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5.3-codex",
+      "enable_thinking": false,
     },
     "model_parameters": [],
-    "always_allow_tool_actions": false,
-    "single_file_review": true,
+    "tool_permissions": {
+      "default": "confirm",
+      "tools": {
+        "terminal": {
+          "default": "confirm",
+          "always_confirm": [
+            { "pattern": "git\\s+(reset|clean)\\s+--hard" },
+            { "pattern": "git\\s+push\\s+(-f|--force)" },
+          ],
+        },
+        "edit_file": {
+          "default": "confirm",
+          "always_deny": [
+            { "pattern": "\\.env($|\\.)" },
+            { "pattern": "secrets?/" },
+            { "pattern": "\\.pem$" },
+            { "pattern": "\\.key$" },
+          ],
+        },
+      },
+    },
+    "single_file_review": false,
     "enable_feedback": true,
     "default_profile": "write",
 
@@ -377,7 +401,7 @@
           "save_file": true,
           "open": true,
           "grep": true,
-          "subagent": true,
+          "spawn_agent": true,
           "terminal": true,
           "thinking": true,
           "web_search": true,
@@ -395,7 +419,7 @@
           "read_file": true,
           "open": true,
           "grep": true,
-          "subagent": true,
+          "spawn_agent": true,
           "thinking": true,
           "web_search": true,
         },
@@ -410,14 +434,19 @@
     "play_sound_when_agent_done": false,
     "expand_edit_card": true,
     "expand_terminal_card": true,
+    "cancel_generation_on_terminal_stop": true,
     "use_modifier_to_send": false,
     "message_editor_min_lines": 4,
+    "show_turn_stats": false,
   },
   "show_call_status_icon": true,
   "enable_language_server": true,
   "linked_edits": true,
   "language_servers": ["..."],
+  "semantic_tokens": "off",
 
+  "document_folding_ranges": "on",
+  "document_symbols": "on",
   "autosave": "off",
 
   "max_tabs": null,
@@ -425,6 +454,7 @@
     "show": true,
     "show_nav_history_buttons": true,
     "show_tab_bar_buttons": true,
+    "show_pinned_tabs_in_separate_row": false,
   },
   "tabs": {
     "git_status": true,
@@ -454,10 +484,11 @@
 
   "remove_trailing_whitespace_on_save": true,
   "extend_comment_on_newline": true,
+  "extend_list_on_newline": true,
+  "indent_list_on_tab": true,
   "ensure_final_newline_on_save": true,
   "format_on_save": "on",
   "formatter": "auto",
-
   "soft_wrap": "none",
   "preferred_line_length": 80,
 
@@ -497,6 +528,7 @@
     "**/.svn",
     "**/.hg",
     "**/.jj",
+    "**/.sl",
     "**/.repo",
     "**/CVS",
     "**/.DS_Store",
@@ -506,8 +538,11 @@
   ],
   "file_scan_inclusions": [".env*"],
   "hidden_files": ["**/.*"],
-
+  "read_only_files": [],
   "git": {
+    "disable_git": false,
+    "enable_status": true,
+    "enable_diff": true,
     "git_gutter": "tracked_files",
     "gutter_debounce": 0,
     "inline_blame": {
@@ -525,12 +560,13 @@
     },
     "hunk_style": "staged_hollow",
     "path_style": "file_name_first",
+    "worktree_directory": "../worktrees",
   },
   "git_hosting_providers": [],
-
   "load_direnv": "direct",
 
   "edit_predictions": {
+    "provider": "copilot",
     "disabled_globs": [
       "**/.env*",
       "**/*.pem",
@@ -568,6 +604,7 @@
     "active_language_button": true,
     "cursor_position_button": true,
     "line_endings_button": false,
+    "active_encoding_button": "non_utf8",
   },
 
   "terminal": {
@@ -608,15 +645,15 @@
         "(?x)",
         "(?<path>",
         "    (",
-        "        # multi-char path: first char (not opening delimiter or space)",
-        "        [^({\\[<\"'`\\ ]",
+        "        # multi-char path: first char (not opening delimiter, space, or box drawing char)",
+        "        [^({\\[<\"'`\\ \\u2500-\\u257F]",
         "        # middle chars: non-space, and colon/paren only if not followed by digit/paren",
         "        ([^\\ :(]|[:(][^0-9()])*",
         "        # last char: not closing delimiter or colon",
         "        [^()}\\]>\"'`.,;:\\ ]",
         "    |",
-        "        # single-char path: not delimiter, punctuation, or space",
-        "        [^(){}\\[\\]<>\"'`.,;:\\ ]",
+        "        # single-char path: not delimiter, punctuation, space, or box drawing char",
+        "        [^(){}\\[\\]<>\"'`.,;:\\ \\u2500-\\u257F]",
         "    )",
         "    # optional line/column suffix (included in path for PathWithPosition::parse_str)",
         "    (:+[0-9]+(:[0-9]+)?|:?\\([0-9]+([,:]?[0-9]+)?\\))?",
@@ -704,8 +741,7 @@
         "allowed": true,
       },
     },
-    "Dart": {
-    },
+    "Dart": {},
     "Diff": {
       "show_edit_predictions": false,
       "remove_trailing_whitespace_on_save": false,
@@ -860,6 +896,7 @@
         "!rubocop",
         "!sorbet",
         "!steep",
+        "!kanayago",
         "...",
       ],
     },
@@ -992,6 +1029,11 @@
 
   "global_lsp_settings": {
     "button": true,
+    "request_timeout": 120,
+    "notifications": {
+      "dismiss_timeout_ms": 5000,
+    },
+    "semantic_token_rules": [],
   },
 
   "jupyter": {
@@ -1002,6 +1044,8 @@
   "repl": {
     "max_columns": 128,
     "max_lines": 32,
+    "output_max_height_lines": 0,
+    "output_max_width_columns": 0,
   },
 
   "vim": {
@@ -1019,7 +1063,10 @@
       "insert": "inherit",
     },
   },
-
+  "which_key": {
+    "enabled": false,
+    "delay_ms": 1000,
+  },
   "server_url": "https://zed.dev",
   "preview": {},
   "nightly": {},
@@ -1041,17 +1088,16 @@
   "command_aliases": {},
   "ssh_connections": [],
   "read_ssh_config": true,
-
+  "context_server_timeout": 60,
   "context_servers": {},
   "agent_servers": {
-    "github-copilot": {
-      "type": "registry",
-    },
     "opencode": {
       "type": "registry",
     },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
   },
-
   "debugger": {
     "stepping_granularity": "line",
     "save_breakpoints": true,
