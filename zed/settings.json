@@ -7,13 +7,12 @@
     "light": "One Light",
     "dark": "Tokyo Night Moon",
   },
-  "icon_theme": "Zed (Default)",
+  "icon_theme": "Catppuccin Macchiato",
 
   "base_keymap": "VSCode",
   "buffer_font_family": "Maple Mono",
   "buffer_font_fallbacks": null,
-  "buffer_font_features": {
-  },
+  "buffer_font_features": {},
   "buffer_font_size": 15,
   "buffer_font_weight": 400,
   "buffer_line_height": "comfortable",
@@ -54,7 +53,7 @@
   "hover_popover_delay": 300,
 
   "confirm_quit": false,
-  
+
   "restore_on_startup": "last_session",
   "restore_on_file_reopen": true,
   "close_on_file_delete": false,
@@ -62,7 +61,7 @@
   "when_closing_with_no_tabs": "platform_default",
   "on_last_window_closed": "platform_default",
   "zoomed_padding": true,
- 
+
   "window_decorations": "client",
 
   "use_system_path_prompts": true,
@@ -105,7 +104,14 @@
   "redact_private_values": false,
   "expand_excerpt_lines": 5,
   "excerpt_context_lines": 2,
-  "private_files": ["**/.env*", "**/*.pem", "**/*.key", "**/*.cert", "**/*.crt", "**/secrets.yml"],
+  "private_files": [
+    "**/.env*",
+    "**/*.pem",
+    "**/*.key",
+    "**/*.cert",
+    "**/*.crt",
+    "**/secrets.yml",
+  ],
 
   "use_on_type_format": true,
   "use_autoclose": true,
@@ -151,7 +157,7 @@
     "experimental.auto_microphone_volume": false,
     "experimental.auto_speaker_volume": true,
     "experimental.denoise": true,
-  
+
     "experimental.legacy_audio_compatible": true,
   },
 
@@ -305,7 +311,7 @@
     "collapse_untracked_diff": false,
     "tree_view": false,
     "scrollbar": {
-      "show": null
+      "show": null,
     },
   },
 
@@ -320,6 +326,18 @@
   },
 
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5.3-codex",
+        "enable_thinking": false,
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "claude-sonnet-4.6",
+        "enable_thinking": false,
+      },
+    ],
     "inline_assistant_use_streaming_tools": true,
     "enabled": true,
     "button": true,
@@ -329,11 +347,10 @@
     "default_height": 320,
     "default_view": "thread",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4",
+      "provider": "copilot_chat",
+      "model": "gpt-5.3-codex",
     },
-    "model_parameters": [
-    ],
+    "model_parameters": [],
     "always_allow_tool_actions": false,
     "single_file_review": true,
     "enable_feedback": true,
@@ -401,7 +418,7 @@
   "linked_edits": true,
   "language_servers": ["..."],
 
- "autosave": "off",
+  "autosave": "off",
 
   "max_tabs": null,
   "tab_bar": {
@@ -445,10 +462,10 @@
   "preferred_line_length": 80,
 
   "hard_tabs": false,
-  "tab_size": 4,
+  "tab_size": 2,
 
   "debuggers": [],
-  
+
   "word_diff_enabled": true,
   "telemetry": {
     "diagnostics": true,
@@ -509,8 +526,7 @@
     "hunk_style": "staged_hollow",
     "path_style": "file_name_first",
   },
-  "git_hosting_providers": [
-  ],
+  "git_hosting_providers": [],
 
   "load_direnv": "direct",
 
@@ -567,8 +583,7 @@
     "copy_on_select": false,
     "keep_selection_on_copy": true,
     "button": true,
-    "env": {
-    },
+    "env": {},
     "line_height": "standard",
     "detect_venv": {
       "on": {
@@ -690,7 +705,6 @@
       },
     },
     "Dart": {
-      "tab_size": 2,
     },
     "Diff": {
       "show_edit_predictions": false,
@@ -698,7 +712,13 @@
       "ensure_final_newline_on_save": false,
     },
     "Elixir": {
-      "language_servers": ["elixir-ls", "!expert", "!next-ls", "!lexical", "..."],
+      "language_servers": [
+        "expert",
+        "!elixir-ls",
+        "!next-ls",
+        "!lexical",
+        "...",
+      ],
     },
     "Elm": {
       "tab_size": 4,
@@ -712,6 +732,7 @@
       "preferred_line_length": 72,
     },
     "Go": {
+      "tab_size": 4,
       "hard_tabs": true,
       "code_actions_on_format": {
         "source.organizeImports": true,
@@ -724,7 +745,13 @@
       },
     },
     "HEEX": {
-      "language_servers": ["elixir-ls", "!expert", "!next-ls", "!lexical", "..."],
+      "language_servers": [
+        "expert",
+        "!elixir-ls",
+        "!next-ls",
+        "!lexical",
+        "...",
+      ],
     },
     "HTML": {
       "prettier": {
@@ -799,7 +826,12 @@
       },
     },
     "Proto": {
-      "language_servers": ["buf", "!protols", "!protobuf-language-server", "..."],
+      "language_servers": [
+        "buf",
+        "!protols",
+        "!protobuf-language-server",
+        "...",
+      ],
     },
     "Python": {
       "code_actions_on_format": {
@@ -811,10 +843,25 @@
         },
       },
       "debuggers": ["Debugpy"],
-      "language_servers": ["basedpyright", "ruff", "!ty", "!pyrefly", "!pyright", "!pylsp", "..."],
+      "language_servers": [
+        "basedpyright",
+        "ruff",
+        "!ty",
+        "!pyrefly",
+        "!pyright",
+        "!pylsp",
+        "...",
+      ],
     },
     "Ruby": {
-      "language_servers": ["ruby-lsp", "!solargraph", "!rubocop", "!sorbet", "!steep", "..."],
+      "language_servers": [
+        "ruby-lsp",
+        "!solargraph",
+        "!rubocop",
+        "!sorbet",
+        "!steep",
+        "...",
+      ],
     },
     "Rust": {
       "debuggers": ["CodeLLDB"],
@@ -847,8 +894,8 @@
     },
     "TypeScript": {
       "language_servers": ["!typescript-language-server", "vtsls", "..."],
-      "prettier": {
-        "allowed": true,
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
       },
     },
     "SystemVerilog": {
@@ -858,8 +905,9 @@
     },
     "Vue.js": {
       "language_servers": ["vue-language-server", "vtsls", "..."],
-      "prettier": {
-        "allowed": true,
+      "formatter": [],
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
       },
     },
     "XML": {
@@ -932,8 +980,7 @@
     "enabled": true,
   },
 
-  "lsp": {
-  },
+  "lsp": {},
 
   "dap": {
     "CodeLLDB": {
@@ -974,14 +1021,10 @@
   },
 
   "server_url": "https://zed.dev",
-  "preview": {
-  },
-  "nightly": {
-  },
-  "stable": {
-  },
-  "dev": {
-  },
+  "preview": {},
+  "nightly": {},
+  "stable": {},
+  "dev": {},
 
   "linux": {},
   "macos": {},
@@ -1000,7 +1043,14 @@
   "read_ssh_config": true,
 
   "context_servers": {},
-  "agent_servers": {},
+  "agent_servers": {
+    "github-copilot": {
+      "type": "registry",
+    },
+    "opencode": {
+      "type": "registry",
+    },
+  },
 
   "debugger": {
     "stepping_granularity": "line",
@@ -1016,3 +1066,4 @@
 
   "log": {},
 }
+
