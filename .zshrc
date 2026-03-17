@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Move to zprofile
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 eval "$(mise activate zsh --shims)" # should be first
 eval "$(mise activate zsh)"

@@ -28,7 +28,6 @@
           nixpkgs.config.allowUnfree = true;
           environment.systemPackages = with pkgs; [
             beam28Packages.rebar3
-            clang
           ];
 
           system.primaryUser = "aidan";
