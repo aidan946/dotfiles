@@ -1,6 +1,8 @@
 font-family = "Maple Mono"
 font-style = "Regular"
-font-size = 14
+font-size = 16
+font-feature = "cv31,cv32,cv33,cv34,cv35,cv36,cv37,cv38,cv66,ss03,ss10,ss11"
+
 theme = tokyonight_moon
 window-padding-x = 8
 window-padding-y = 8

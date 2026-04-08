@@ -10,47 +10,48 @@
     maple-mono.truetype
     nerd-fonts.fira-code
 
-    libyaml
-    libiconv
-    openssl_3
+    cmake
+    clang
     gnupatch
+    libiconv
     libpq
+    libyaml
+    openssl_3
 
     fish
     nushell
 
-    git
-    jujutsu
-    vim
-    neovim
-    tmux
-    zellij
-    starship
-    zoxide
-    eza
-    yazi
-    lazygit
-    jjui
-    lazysql
     carapace
+    eza
+    git
+    jjui
+    jujutsu
+    lazysql
+    lazygit
+    neovim
+    starship
+    tmux
+    vim
     wget
-    ghostscript
+    yazi
+    zellij
+    zoxide
 
-    opam
     pixi
-    nil
     nixd
+    nixfmt
+    opam
 
-    tree-sitter
-    ripgrep
+    ast-grep
     fd
     fzf
-    imagemagick
-    tectonic
-    mermaid-cli
     gh
-    carapace
-    # opencode
+    ghostscript
+    imagemagick
+    mermaid-cli
+    ripgrep
+    tectonic
+    tree-sitter
 
     codecrafters-cli
     exercism
@@ -63,13 +64,13 @@
     ".config/fish/themes/tokyonight.fish".source = ../fish/themes/tokyonight_moon.fish;
     ".config/ghostty".source = ../ghostty;
     ".config/kitty".source = ../kitty;
-    ".config/nvim".source = ../nvim;
-    # ".config/nushell/config.nu".source = ../nushell/config.nu;
-    # ".config/nushell/env.nu".source = ../nushell/env.nu;
-    # ".config/nushell/opam.nu".source = ../nushell/opam.nu;
+    ".config/nvim/after".source = ../nvim/after;
+    ".config/nvim/lua".source = ../nvim/lua;
+    ".config/nvim/plugin".source = ../nvim/plugin;
+    ".config/nvim/snippets".source = ../nvim/snippets;
+    ".config/nvim/init.;ua".source = ../nvim/init.lua;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
-    # ".config/zellij".source = ../zellij;
   };
 
   programs.git = {
