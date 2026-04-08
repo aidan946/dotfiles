@@ -68,7 +68,7 @@
     ".config/nvim/lua".source = ../nvim/lua;
     ".config/nvim/plugin".source = ../nvim/plugin;
     ".config/nvim/snippets".source = ../nvim/snippets;
-    ".config/nvim/init.;ua".source = ../nvim/init.lua;
+    ".config/nvim/init.lua".source = ../nvim/init.lua;
     ".config/starship".source = ../starship;
     ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
   };
