@@ -8,6 +8,8 @@ vim.pack.add {
   'https://github.com/rachartier/tiny-inline-diagnostic.nvim',
 }
 
+require('fidget').setup {}
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
@@ -91,7 +93,6 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local servers = {
   clangd = {},
-  codebook = {},
   copilot = {},
   eslint = {
     settings = {
@@ -123,7 +124,6 @@ local servers = {
 
 local ensure_installed = {
   'clangd',
-  'codebook',
   'copilot-language-server',
   'erb-formatter',
   'eslint_d',

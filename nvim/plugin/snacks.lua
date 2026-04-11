@@ -12,9 +12,9 @@ require('snacks').setup {
     timeout = 3000,
   },
   quickfile = { enabled = true },
-  picker = {},
-  scratch = {},
-  scope = {},
+  picker = { endabled = true },
+  scratch = { enabled = false },
+  scope = { enabled = true },
   statuscolumn = { enabled = true },
   styles = {
     notification = {

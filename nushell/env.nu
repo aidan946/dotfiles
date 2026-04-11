@@ -1,7 +1,7 @@
 # Default Nushell Environment Config File
 # These "sensible defaults" are set before the user's `env.nu` is loaded
 #
-# version = "0.110.1"
+# version = "0.112.2"
 
 $env.PROMPT_COMMAND = {||
     let dir = match (do -i { $env.PWD | path relative-to $nu.home-dir }) {
@@ -51,13 +51,12 @@ path add "$HOME/.cargo/bin"
 path add "$HOME/.ghcup/bin"
 path add "$HOME/.nix-profile/bin"
 path add "$HOME/.nix-profile/etc/bin"
+path add "/etc/profiles/per-user/aidan/bin"
 
 mkdir $"($nu.cache-dir)"
 carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
 
 let mise_path = $nu.default-config-dir | path join mise.nu
 ^mise activate nu | save $mise_path --force
-
-use opam.nu
 
 zoxide init nushell | save -f ~/.zoxide.nu
