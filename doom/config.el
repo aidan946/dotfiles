@@ -11,7 +11,7 @@
 
 (setq doom-font (font-spec :family "Maple Mono" :size 15 :weight 'regular))
 
-(setq doom-theme 'doom-tokyo-night)
+(setq doom-theme 'catppuccin)
 
 (setq display-line-numbers-type 'relative)
 
