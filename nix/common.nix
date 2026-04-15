@@ -60,6 +60,7 @@
   home.file = {
     ".zshrc".source = ../.zshrc;
     ".config/aerospace".source = ../aerospace;
+    ".config/doom".source = ../doom;
     ".config/fish/config.fish".source = ../fish/config.fish;
     ".config/fish/themes/tokyonight.fish".source = ../fish/themes/tokyonight_moon.fish;
     ".config/ghostty".source = ../ghostty;
