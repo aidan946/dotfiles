@@ -19,7 +19,7 @@
     openssl_3
 
     fish
-    nushell
+    #nushell
 
     carapace
     eza

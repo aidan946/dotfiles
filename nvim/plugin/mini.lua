@@ -30,9 +30,6 @@ require('ts_context_commentstring').setup {
 }
 
 local lazy_load_mini_comment = function()
-  vim.pack.add { 'https://github.com/echasnovski/mini.comment' }
-  vim.cmd.packadd 'mini.comment'
-
   require('mini.comment').setup {
     options = {
       custom_commentstring = function()
