@@ -1,10 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home.username = "aidan";
-  home.stateVersion = "25.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
+  xdg.enable = true;
   fonts.fontconfig.enable = true;
+  programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
 
   home.packages = with pkgs; [
     maple-mono.truetype
@@ -19,7 +21,7 @@
     openssl_3
 
     fish
-    #nushell
+    nushell
 
     carapace
     eza
@@ -32,9 +34,7 @@
     starship
     tmux
     vim
-    wget
     yazi
-    zellij
     zoxide
 
     pixi
@@ -45,12 +45,7 @@
     ast-grep
     fd
     fzf
-    gh
-    ghostscript
-    imagemagick
-    mermaid-cli
     ripgrep
-    tectonic
     tree-sitter
 
     codecrafters-cli
@@ -58,23 +53,24 @@
   ];
 
   home.file = {
-    ".zshrc".source = ../.zshrc;
-    ".config/aerospace".source = ../aerospace;
     ".config/doom".source = ../doom;
-    ".config/fish/config.fish".source = ../fish/config.fish;
-    ".config/fish/themes/tokyonight.fish".source = ../fish/themes/tokyonight_moon.fish;
-    ".config/ghostty".source = ../ghostty;
-    ".config/kitty".source = ../kitty;
     ".config/nvim/after".source = ../nvim/after;
     ".config/nvim/lua".source = ../nvim/lua;
     ".config/nvim/plugin".source = ../nvim/plugin;
     ".config/nvim/snippets".source = ../nvim/snippets;
     ".config/nvim/init.lua".source = ../nvim/init.lua;
-    ".config/nushell/config.nu".source = ../nushell/config.nu;
-    ".config/nushell/env.nu".source = ../nushell/env.nu;
-    ".config/starship".source = ../starship;
-    ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
   };
+
+  imports = [
+    ./fish.nix
+    ./ghostty.nix
+    ./kitty.nix
+    ./nushell.nix
+    ./starship.nix
+    ./tmux.nix
+    ./yazi.nix
+    ./zsh.nix
+  ];
 
   programs.git = {
     enable = true;
