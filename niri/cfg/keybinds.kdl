@@ -7,7 +7,9 @@ binds {
 
     // ─── Applications ───
     Mod+T                               hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
-    Mod+Space                           hotkey-overlay-title="Open App Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+
+    Mod+Space                           hotkey-overlay-title="Toggle Launcher: Vicinae" repeat=false { spawn "vicinae" "toggle"; }
+
     Mod+B                               hotkey-overlay-title="Open Browser: Zen Browser" { spawn "zen-browser"; }
     Mod+Alt+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn "dms" "ipc" "call" "lock" "lock"; }
     Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
