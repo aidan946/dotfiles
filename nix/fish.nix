@@ -23,6 +23,7 @@
   };
 
   home.sessionPath = [
+    "/opt/homebrew/opt/llvm/bin"
     "$HOME/.nix-profile/bin"
     "$HOME/.nix-profile/etc/bin"
     "$HOME/.local/bin"

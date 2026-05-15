@@ -7,19 +7,6 @@
     enableCompletion = true;
     setOptions = [ "CORRECT" ];
 
-    oh-my-zsh = {
-      enable = true;
-      theme = "";
-      plugins = [
-        "git"
-        "colored-man-pages"
-        "command-not-found"
-      ];
-      extraConfig = ''
-        zstyle ':omz:update' mode reminder
-      '';
-    };
-
     autosuggestion.enable = true;
 
     syntaxHighlighting = {
@@ -32,6 +19,8 @@
     };
 
     initContent = ''
+      source <(carapace _carapace zsh)
+
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
       eval "$(mise activate zsh --shims)"

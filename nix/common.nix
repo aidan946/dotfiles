@@ -13,7 +13,6 @@
     nerd-fonts.fira-code
 
     cmake
-    clang
     gnupatch
     libiconv
     libpq
