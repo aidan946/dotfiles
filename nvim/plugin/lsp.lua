@@ -93,7 +93,6 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local servers = {
   clangd = {},
-  copilot = {},
   eslint = {
     settings = {
       workingDirectories = { mode = 'auto' },
@@ -124,7 +123,6 @@ local servers = {
 
 local ensure_installed = {
   'clangd',
-  'copilot-language-server',
   'erb-formatter',
   'eslint_d',
   'eslint-lsp',

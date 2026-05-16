@@ -61,6 +61,7 @@
   };
 
   imports = [
+    ./bash.nix
     ./fish.nix
     ./ghostty.nix
     ./kitty.nix
