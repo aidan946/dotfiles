@@ -12,7 +12,7 @@ require('snacks').setup {
     timeout = 3000,
   },
   quickfile = { enabled = true },
-  picker = { endabled = true },
+  picker = { endabled = false },
   scratch = { enabled = false },
   scope = { enabled = true },
   statuscolumn = { enabled = true },
@@ -73,21 +73,6 @@ end, { desc = 'Search Help' })
 vim.keymap.set({ 'n' }, '<leader>sk', function()
   Snacks.picker.keymaps()
 end, { desc = 'Search Keymaps' })
-vim.keymap.set({ 'n' }, '<leader>sf', function()
-  Snacks.picker.files()
-end, { desc = 'Search Files' })
-vim.keymap.set({ 'n' }, '<leader>sw', function()
-  Snacks.picker.grep_word()
-end, { desc = 'Search Current Word' })
-vim.keymap.set({ 'n' }, '<leader>sg', function()
-  Snacks.picker.grep()
-end, { desc = 'Search by Grep' })
-vim.keymap.set({ 'n' }, '<leader>sd', function()
-  Snacks.picker.diagnostics()
-end, { desc = 'Search Document Diagnostics' })
-vim.keymap.set({ 'n' }, '<leader>sb', function()
-  Snacks.picker.buffers()
-end, { desc = 'Search Buffers' })
 
 vim.schedule(function()
   Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>us'

@@ -1,15 +1,5 @@
 vim.pack.add { 'https://github.com/folke/trouble.nvim' }
-require('trouble').setup {
-  modes = {
-    lsp = {
-      win = { position = 'right' },
-    },
-  },
-}
-
-vim.api.nvim_create_user_command('Trouble', function()
-  require('trouble').open()
-end, {})
+require('trouble').setup {}
 
 vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Diagnostics (Trouble)' })
 vim.keymap.set('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Buffer Diagnostics (Trouble)' })
