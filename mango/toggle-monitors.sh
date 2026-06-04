@@ -5,11 +5,11 @@
 FLAG="/tmp/mango-monitors-off"
 
 if [ -f "$FLAG" ]; then
-    wlr-randr --output DP-1 --on
+    wlr-randr --output DP-3 --on
     wlr-randr --output DP-2 --on
     rm -f "$FLAG"
 else
-    wlr-randr --output DP-1 --off
+    wlr-randr --output DP-3 --off
     wlr-randr --output DP-2 --off
     touch "$FLAG"
 fi
