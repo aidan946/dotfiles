@@ -49,4 +49,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;(setq shell-file-name (executable-find "zsh"))
+(setq shell-file-name (executable-find "zsh"))
+
+(setq-default vterm-shell "/etc/profiles/per-user/aidan/bin/fish")
+        (setq-default explicit-shell-file-name "/etc/profiles/per-user/aidan/bin/fish")

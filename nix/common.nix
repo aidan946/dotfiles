@@ -11,6 +11,8 @@
   home.packages = with pkgs; [
     maple-mono.truetype
     nerd-fonts.fira-code
+    nerd-fonts.symbols-only
+    symbola
 
     cmake
     gnupatch

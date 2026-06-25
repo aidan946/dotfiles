@@ -8,7 +8,7 @@
     interactiveShellInit = ''
       set -g fish_greeting
 
-      fish_config theme choose catppuccin-mocha
+      fish_config theme choose catppuccin-mocha --color-theme=dark
 
       carapace _carapace | source
       eval (opam env)
