@@ -19,7 +19,7 @@
     libiconv
     libpq
     libyaml
-    openssl_3
+    openssl
 
     fish
     nushell
@@ -33,9 +33,9 @@
     lazygit
     neovim
     starship
+    superfile
     tmux
     vim
-    yazi
     zoxide
 
     pixi
@@ -70,7 +70,6 @@
     ./nushell.nix
     ./starship.nix
     ./tmux.nix
-    ./yazi.nix
     ./zsh.nix
   ];
 
