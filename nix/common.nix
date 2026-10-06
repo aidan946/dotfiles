@@ -6,7 +6,7 @@
 
   xdg.enable = true;
   fonts.fontconfig.enable = true;
-  programs.man.generateCaches = lib.mkIf pkgs.stdenv.isDarwin false;
+  programs.man.generateCaches = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin false;
 
   home.packages = with pkgs; [
     maple-mono.truetype
