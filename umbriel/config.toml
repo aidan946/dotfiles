@@ -57,14 +57,22 @@ autostart = ["noctalia", "vicinae server","dbus-update-activation-environment --
 # Outputs
 # Outputs are machine-specific. Run `umbriel outputs` to find names and modes.
 # https://docs.noctalia.dev/umbriel/outputs/
-#
-# [output.DP-1]
-# mode = "2560x1440@144"
-# position = [0, 0]
-# scale = 1.25
-# vrr = "fullscreen"
-# hdr = "auto"
-# sdr_transfer = "gamma22" # Or "srgb" for piecewise SDR decoding in HDR.
+
+[output.DP-2]
+mode = "1920x1080@239.761"
+position = [3440, 360]
+scale = 1.0
+vrr = "always"
+tearing = true
+focus_at_startup = true
+
+[output.DP-3]
+mode = "3440x1440@144"
+position = [0, 0]
+scale = 1.0
+vrr = "always"
+tearing = true
+
 
 # ==============================================================================
 # Appearance
@@ -122,6 +130,9 @@ numlock_toggle = true
 repeat_rate = 40
 repeat_delay = 200
 options = "caps:escape"
+
+[input.mouse]
+accel_profile = "flat"
 
 [input.touchpad]
 tap = true
@@ -207,6 +218,7 @@ scroll_factor = 0.5
 "Mod+WheelUp" = "window-focus-left"
 "Mod+WheelDown" = "window-focus-right"
 "Mod+O" = { action = "overview-toggle", repeat = false }
+"Mod+Shift+P" = { action = "dpms-off", repeat = false }
 
 # Workspaces
 "Mod+1" = "workspace-switch:1"
