@@ -24,7 +24,8 @@ files = ["noctalia.toml"]
 # https://docs.noctalia.dev/umbriel/configuration/#general
 #
 [general]
-autostart = ["noctalia", "vicinae server","dbus-update-activation-environment --systemd --all","wl-paste --type text --watch cliphist store"]
+autostart = ["noctalia","dbus-update-activation-environment --systemd --all","wl-paste --type text --watch cliphist store"]
+show_cheatsheet = false
 # xwayland = false
 # Sharp X11 apps and games on scaled outputs; they see physical resolutions.
 # xwayland_native_resolution = true
@@ -62,16 +63,16 @@ autostart = ["noctalia", "vicinae server","dbus-update-activation-environment --
 mode = "1920x1080@239.761"
 position = [3440, 360]
 scale = 1.0
-vrr = "always"
+vrr = "disabled"
 tearing = true
-focus_at_startup = true
 
 [output.DP-3]
 mode = "3440x1440@144"
 position = [0, 0]
 scale = 1.0
-vrr = "always"
+vrr = "disabled"
 tearing = true
+focus_at_startup = true
 
 
 # ==============================================================================
@@ -80,10 +81,10 @@ tearing = true
 # https://docs.noctalia.dev/umbriel/appearance/
 #
 [appearance.blur]
-enabled = false
+enabled = true
 
 [appearance.shadow]
-enabled = false
+enabled = true
 
 # Choose the background color shown if the lock screen takes too long to appear.
 # [colors]
@@ -142,8 +143,8 @@ scroll_factor = 0.5
 
 # Focus can follow the pointer across tiled, floating, and pinned windows.
 #
-# [input.focus]
-# follows_mouse = true
+[input.focus]
+follows_mouse = true
 
 # Confine touch input to one display.
 #
@@ -162,6 +163,7 @@ scroll_factor = 0.5
 # Applications and session
 "Mod+T" = { action = "spawn:ghostty", repeat = false }
 "Mod+B" = { action = "spawn:zen-browser", repeat = false }
+"Mod+E" = { action = "spawn:dolphin", repeat = false }
 "Mod+Space" = { action = "spawn:vicinae toggle", repeat = false }
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
@@ -253,6 +255,7 @@ scroll_factor = 0.5
 # their most recently focused row when focus leaves and later returns.
 # https://docs.noctalia.dev/umbriel/layout/
 [layout]
+mode = "dwindle"
 extent_presets = [0.333, 0.5, 0.667]
 
 # What a tiled window's own maximize button does: "column" fills the column,
