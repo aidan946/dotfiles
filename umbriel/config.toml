@@ -24,7 +24,7 @@ files = ["noctalia.toml"]
 # https://docs.noctalia.dev/umbriel/configuration/#general
 #
 [general]
-autostart = ["noctalia","dbus-update-activation-environment --systemd --all","wl-paste --type text --watch cliphist store"]
+autostart = ["vicinae server", "noctalia","dbus-update-activation-environment --systemd --all","wl-paste --type text --watch cliphist store"]
 show_cheatsheet = false
 # xwayland = false
 # Sharp X11 apps and games on scaled outputs; they see physical resolutions.
@@ -65,6 +65,7 @@ position = [3440, 360]
 scale = 1.0
 vrr = "disabled"
 tearing = true
+workspaces = 5
 
 [output.DP-3]
 mode = "3440x1440@144"
@@ -73,7 +74,10 @@ scale = 1.0
 vrr = "disabled"
 tearing = true
 focus_at_startup = true
+workspaces = 5
 
+[output.eDP-1]
+workspaces = 5
 
 # ==============================================================================
 # Appearance
@@ -81,10 +85,10 @@ focus_at_startup = true
 # https://docs.noctalia.dev/umbriel/appearance/
 #
 [appearance.blur]
-enabled = true
+enabled = false
 
 [appearance.shadow]
-enabled = true
+enabled = false
 
 # Choose the background color shown if the lock screen takes too long to appear.
 # [colors]
@@ -161,10 +165,10 @@ follows_mouse = true
 [keybinds]
 
 # Applications and session
-"Mod+T" = { action = "spawn:ghostty", repeat = false }
-"Mod+B" = { action = "spawn:zen-browser", repeat = false }
-"Mod+E" = { action = "spawn:dolphin", repeat = false }
-"Mod+Space" = { action = "spawn:vicinae toggle", repeat = false }
+"Mod+T" = { action = "spawn ghostty", repeat = false }
+"Mod+B" = { action = "spawn zen-browser", repeat = false }
+"Mod+E" = { action = "spawn dolphin", repeat = false }
+"Mod+Space" = { action = "spawn vicinae toggle", repeat = false }
 "Mod+Q" = { action = "window-close", repeat = false }
 "Mod+Escape" = "session-quit"
 "Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
@@ -172,20 +176,16 @@ follows_mouse = true
 # Media, volume and brightness keys from any input device, routed through the
 # Noctalia shell so its OSDs show. Safe while the session is locked.
 # https://docs.noctalia.dev/noctalia/compositor-settings/umbriel
-"XF86AudioRaiseVolume" = { action = "spawn:noctalia msg volume-up", allow_when_locked = true }
-"XF86AudioLowerVolume" = { action = "spawn:noctalia msg volume-down", allow_when_locked = true }
-"XF86AudioMute" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
-"XF86AudioPlay" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
-"XF86AudioNext" = { action = "spawn:noctalia msg media next", allow_when_locked = true }
-"XF86AudioPrev" = { action = "spawn:noctalia msg media previous", allow_when_locked = true }
-"XF86MonBrightnessUp" = { action = "spawn:noctalia msg brightness-up", allow_when_locked = true }
-"XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down", allow_when_locked = true }
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
 
 # Focus and movement
-"Mod+Left" = "window-focus-left"
-"Mod+Down" = "window-focus-down"
-"Mod+Up" = "window-focus-up"
-"Mod+Right" = "window-focus-right"
 "Mod+H" = "window-focus-left"
 "Mod+J" = "window-focus-down"
 "Mod+K" = "window-focus-up"
@@ -194,11 +194,15 @@ follows_mouse = true
 "Mod+Shift+K" = "window-move-down"
 "Mod+Shift+J" = "window-move-up"
 "Mod+Shift+L" = "column-move-right"
+"Mod+Ctrl+H" = "output-focus-left"
+"Mod+Ctrl+K" = "output-focus-up"
+"Mod+Ctrl+J" = "output-focus-down"
+"Mod+Ctrl+L" = "output-focus-right"
+"Mod+Ctrl+Shift+H" = "window-move-to-output-left"
+"Mod+Ctrl+Shift+K" = "window-move-to-output-down"
+"Mod+Ctrl+Shift+J" = "window-move-to-output-up"
+"Mod+Ctrl+Shift+L" = "window-move-to-output-right"
 "Mod+F1" = "window-focus-next"
-"Mod+Shift+Left" = "column-move-left"
-"Mod+Shift+Down" = "window-move-down"
-"Mod+Shift+Up" = "window-move-up"
-"Mod+Shift+Right" = "column-move-right"
 
 # Window state and layout
 "Mod+V" = { action = "window-toggle-floating", repeat = false }
@@ -223,24 +227,24 @@ follows_mouse = true
 "Mod+Shift+P" = { action = "dpms-off", repeat = false }
 
 # Workspaces
-"Mod+1" = "workspace-switch:1"
-"Mod+2" = "workspace-switch:2"
-"Mod+3" = "workspace-switch:3"
-"Mod+4" = "workspace-switch:4"
-"Mod+5" = "workspace-switch:5"
-"Mod+6" = "workspace-switch:6"
-"Mod+7" = "workspace-switch:7"
-"Mod+8" = "workspace-switch:8"
-"Mod+9" = "workspace-switch:9"
-"Mod+Shift+1" = "window-move-to-workspace:1"
-"Mod+Shift+2" = "window-move-to-workspace:2"
-"Mod+Shift+3" = "window-move-to-workspace:3"
-"Mod+Shift+4" = "window-move-to-workspace:4"
-"Mod+Shift+5" = "window-move-to-workspace:5"
-"Mod+Shift+6" = "window-move-to-workspace:6"
-"Mod+Shift+7" = "window-move-to-workspace:7"
-"Mod+Shift+8" = "window-move-to-workspace:8"
-"Mod+Shift+9" = "window-move-to-workspace:9"
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
 
 # Scratchpad
 "Mod+Shift+Return" = { action = "window-move-to-scratchpad", repeat = false }
@@ -294,9 +298,6 @@ default_extent_fraction = 0.5
 # include overlapping windows behind them, at a GPU cost on every frame that
 # moves anything behind them.
 [[window_rule]]
-blur = true
-
-[[window_rule]]
 match.app_id = "^dev.noctalia.Noctalia$"
 default_floating = true
 default_floating_size_px = { width = 1020, height = 900 }
@@ -329,13 +330,13 @@ default_pinned = true
 # background_render = true
 
 # Named scratchpads can launch an application when toggled while empty.
-# [[scratchpad]]
-# name = "music"
-# spawn_when_empty = "spotify"
+[[scratchpad]]
+name = "music"
+spawn_when_empty = "spotify"
 
-# [[window_rule]]
-# match.app_id = "^spotify$"
-# default_scratchpad = "music"
+[[window_rule]]
+match.app_id = "^spotify$"
+default_scratchpad = "music"
 
 # Give scratchpad windows their own border colors.
 # [[window_rule]]
